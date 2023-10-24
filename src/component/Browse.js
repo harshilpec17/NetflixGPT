@@ -6,7 +6,7 @@ import useTvShows from "../hooks/useTvShows";
 
 const Browse = () => {
   useNowPlayingMovies();
-  // we are fetching the tv shows
+
   useTvShows();
   return (
     <>
