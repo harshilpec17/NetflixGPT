@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { NOW_PLAYING_MOVIES } from "../utils/constants";
-import { addTrailerVideo } from "../utils/redux/moviesSlice";
+import { API_TOKEN } from "../../utils/Constants/constants";
+import { addTrailerVideo } from "../../utils/redux/moviesSlice";
 import { useEffect } from "react";
 
 const useTrailerVideo = ({ movieId }) => {
@@ -9,7 +9,7 @@ const useTrailerVideo = ({ movieId }) => {
   const backgroundVideo = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
-      NOW_PLAYING_MOVIES
+      API_TOKEN
     );
     const json = await data.json();
 

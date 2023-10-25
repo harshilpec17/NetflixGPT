@@ -1,13 +1,16 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
-import { auth } from "../utils/Firebase";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { auth } from "../../utils/loginConfig/Firebase";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addUser, removeUser } from "../utils/redux/userSlice";
-import { LOGO, PROFILE_IMG } from "../utils/constants";
+import { addUser, removeUser } from "../../utils/redux/userSlice";
+import { LOGO, PROFILE_IMG, langs } from "../../utils/Constants/constants";
+import { GptToggle } from "../../utils/redux/GPTSearchSlice";
+import { addLanguage } from "../../utils/redux/languageSlice";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const user = useSelector((store) => store.user);
+  const gptToggle = useSelector((store) => store.gpt.gptToggleValue);
   // for updating the redux store, we are using the the useDispatch hook.
   const dispatch = useDispatch();
 
@@ -44,8 +47,6 @@ const Header = () => {
   ---***/
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsLoggedIn(!user);
-
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
@@ -59,19 +60,47 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptToggle = () => {
+    dispatch(GptToggle());
+  };
+
+  const selectLanguage = (e) => {
+    dispatch(addLanguage(e.target.value));
+  };
+
   return (
     <>
+      <div className="px-10 z-50 w-screen flex absolute bg-gradient-to-b from-black ">
+        <div>
+          <img className="w-60" src={LOGO} alt="Netflix logo" />
+        </div>
+      </div>
       <div>
-        {isLoggedIn ? (
-          <div>
-            <div className="w-screen py-4 px-10 z-50 flex bg-gradient-to-b from-black absolute">
-              <img className="w-60" src={LOGO} alt="Netflix logo" />
-            </div>
-          </div>
-        ) : (
-          <div className="w-screen items-center px-10 relative z-50 bg-gradient-to-b from-black flex justify-between">
-            <img className="w-60 z-10" src={LOGO} alt="Netflix logo" />
+        {user && (
+          <div
+            className={`w-screen items-center py-4 px-10 ${
+              gptToggle ? "absolute" : "relative"
+            } z-50 flex justify-end`}
+          >
             <div className="flex items-center justify-between gap-6">
+              {gptToggle && (
+                <select
+                  className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
+                  onChange={selectLanguage}
+                >
+                  {langs.map((ref) => (
+                    <option key={ref.identifier} value={ref.identifier}>
+                      {ref.lang}
+                    </option>
+                  ))}
+                </select>
+              )}
+              <button
+                onClick={handleGptToggle}
+                className="px-6 py-2 outline-none rounded text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+              >
+                {gptToggle ? "HomePage" : "GPT Search"}
+              </button>
               <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" />
               {/* Onclick function for the signOut function  */}
               <button

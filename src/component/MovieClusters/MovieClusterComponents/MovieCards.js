@@ -1,5 +1,5 @@
 import React from "react";
-import { MOVIE_IMAGE_URL } from "../utils/constants";
+import { MOVIE_IMAGE_URL } from "../../../utils/Constants/constants";
 
 const MovieCards = ({ title, poster }) => {
   return (

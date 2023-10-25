@@ -7,7 +7,7 @@ export const PROFILE_IMG =
 export const BACKGROUND_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/f9a24fdc-ab8b-4e19-b0f5-4923356a72de/CA-en-20231009-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
 
-export const NOW_PLAYING_MOVIES = {
+export const API_TOKEN = {
   method: "GET",
   headers: {
     accept: "application/json",
@@ -17,3 +17,18 @@ export const NOW_PLAYING_MOVIES = {
 };
 
 export const MOVIE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+
+export const langs = [
+  {
+    identifier: "en",
+    lang: "english",
+  },
+  {
+    identifier: "french",
+    lang: "french",
+  },
+  {
+    identifier: "hindi",
+    lang: "hindi",
+  },
+];

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import useTrailerVideo from "../hooks/useTrailerVideo";
+import useTrailerVideo from "../../../hooks/MovieHooks/useTrailerVideo";
 
 const VideoBackground = ({ movieId }) => {
   useTrailerVideo({ movieId });
@@ -7,9 +7,9 @@ const VideoBackground = ({ movieId }) => {
 
   return (
     <>
-      <div className="-mt-44">
+      <div className="-mt-24">
         <iframe
-          className="w-screen aspect-video px-2"
+          className=" w-screen px-2 aspect-video"
           src={
             "https://www.youtube.com/embed/" +
             trailerKey +
