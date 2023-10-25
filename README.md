@@ -1,1 +1,1 @@
-# NEtflixGPT
+# NetflixGPT
