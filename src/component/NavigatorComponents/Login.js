@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import Header from "../component/Layout/Header";
-import { validateData } from "../utils/loginConfig/Validate";
-import { auth } from "../utils/loginConfig/Firebase";
+import Header from "../Layout/Header";
+import { validateData } from "../../utils/loginConfig/Validate";
+import { auth } from "../../utils/loginConfig/Firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,8 +9,8 @@ import {
 } from "firebase/auth";
 
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/redux/userSlice";
-import { BACKGROUND_IMG } from "../utils/Constants/constants";
+import { addUser } from "../../utils/redux/userSlice";
+import { BACKGROUND_IMG } from "../../utils/Constants/constants";
 
 const Login = () => {
   // This hook will check and modify the component to login or SignUp by checking which state are active
