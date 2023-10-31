@@ -10,8 +10,10 @@ const GptPage = () => {
         src="https://imageio.forbes.com/specials-images/imageserve/65133ef75b24f850bb4ad501/0x0.jpg?format=jpg&crop=3988,2244,x0,y198,safe&height=900&width=1600&fit=bounds"
         alt="background Img"
       />
-      <GptSearchBar />
-      <GptSearchResult />
+      <div className="flex flex-col">
+        <GptSearchBar />
+        <GptSearchResult />
+      </div>
     </>
   );
 };
