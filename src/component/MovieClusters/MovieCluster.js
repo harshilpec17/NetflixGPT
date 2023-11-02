@@ -7,8 +7,8 @@ const MovieCluster = () => {
 
   return (
     <>
-      <div className="bg-black">
-        <div className="-mt-36 relative pl-12 pr-2 pt-20">
+      <div className="bg-gray-950">
+        <div className="-mt-36 relative ml-12 pr-2 pt-20">
           <MovieList
             title={"Now Playing"}
             movies={movieList.nowPlayingMovies}
