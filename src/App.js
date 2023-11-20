@@ -1,13 +1,13 @@
-import { Provider } from "react-redux";
-import Body from "./component/Layout/Body";
 import React from "react";
-import { appStore } from "./utils/redux/appStore";
+import { Outlet } from "react-router-dom";
+import Header from "./component/Layout/Header";
 
 function App() {
   return (
-    <Provider store={appStore}>
-      <Body />
-    </Provider>
+    <>
+      <Header />
+      <Outlet />
+    </>
   );
 }
 
