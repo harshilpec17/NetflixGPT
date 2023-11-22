@@ -2,7 +2,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import { auth } from "../../utils/loginConfig/Firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../../utils/redux/userSlice";
 import { LOGO, PROFILE_IMG, langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
@@ -49,8 +49,9 @@ const Header = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
+
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
+        navigate("browse");
       } else {
         dispatch(removeUser());
         navigate("/");
@@ -62,6 +63,7 @@ const Header = () => {
 
   const handleGptToggle = () => {
     dispatch(GptToggle());
+    gptToggle ? navigate("browse") : navigate("gptSearch");
   };
 
   const selectLanguage = (e) => {
@@ -70,7 +72,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="px-10 z-50 w-screen flex absolute bg-gradient-to-b from-black ">
+      <div className="px-10 z-50 w-screen flex bg-gradient-to-b from-black absolute">
         <div>
           <img className="w-60" src={LOGO} alt="Netflix logo" />
         </div>
@@ -78,9 +80,8 @@ const Header = () => {
       <div>
         {user && (
           <div
-            className={`w-screen items-center py-4 px-10 ${
-              gptToggle ? "absolute" : "relative"
-            } z-50 flex justify-end`}
+            className={`w-screen items-center py-4 px-10 
+            absolute z-50 flex justify-end`}
           >
             <div className="flex items-center justify-between gap-6">
               {gptToggle && (
