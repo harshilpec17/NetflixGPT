@@ -7,7 +7,7 @@ const VideoBackground = ({ movieId }) => {
 
   return (
     <>
-      <div className="-mt-24">
+      <div>
         <iframe
           className=" w-screen px-2 aspect-video"
           src={
