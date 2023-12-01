@@ -9,14 +9,12 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-
-import { appStore } from "./utils/redux/appStore";
 import { Provider } from "react-redux";
 import Login from "./component/NavigatorComponents/Login";
 import Browse from "./component/NavigatorComponents/Browse";
 import Watch from "./component/MovieInformation/MovieInformationPage";
-
 import GptPage from "./component/GPTPage/GptPage";
+import { appStore } from "./utils/redux/appStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(

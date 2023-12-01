@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import Header from "../Layout/Header";
+
 import { validateData } from "../../utils/loginConfig/Validate";
 import { auth } from "../../utils/loginConfig/Firebase";
 import {
@@ -63,7 +63,7 @@ const Login = () => {
           updateProfile(user, {
             displayName: nameRef.current.value,
           })
-            .then(() => {
+            .then((response) => {
               // It will get the data from the currentUser, who just signIn in the application,
               // after creating the account on the application
               const { uid, email, displayName } = auth.currentUser;
@@ -73,6 +73,10 @@ const Login = () => {
                   email: email,
                   displayName: displayName,
                 })
+              );
+              sessionStorage.setItem(
+                "Auth Token",
+                response._tokenResponse.refreshToken
               );
             })
             .catch((error) => {
@@ -94,6 +98,10 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          sessionStorage.setItem(
+            "Auth Token",
+            userCredential._tokenResponse.refreshToken
+          );
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -121,7 +129,6 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       {/* background Image mobile responsive */}
       <img
         className="bg-cover bg-center h-screen md:bg-contain absolute w-screen"
