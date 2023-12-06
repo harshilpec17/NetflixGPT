@@ -16,6 +16,8 @@ import Watch from "./component/MovieInformation/MovieInformationPage";
 import GptPage from "./component/GPTPage/GptPage";
 import { appStore } from "./utils/redux/appStore";
 
+import CastProfile from "./component/MovieInformation/MovieInformationComponent/CastAndCrew/CastProfile/CastProfile";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +27,7 @@ const router = createBrowserRouter(
         <Route path="browse" element={<Browse />}></Route>
         <Route path="gptSearch" element={<GptPage />}></Route>
         <Route path="watch" element={<Watch />}></Route>
+        <Route path="castInfo" element={<CastProfile />}></Route>
       </Route>
     </>
   )
