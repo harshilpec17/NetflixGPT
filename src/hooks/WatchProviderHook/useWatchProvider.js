@@ -2,9 +2,14 @@ import { API_TOKEN } from "../../utils/Constants/constants";
 import { useDispatch } from "react-redux";
 import { addMovieProvider } from "../../utils/redux/movieDescription";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useWatchProvider = ({ movieInfo }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  if (movieInfo === null) {
+    navigate("/browse");
+  }
   const watchProvider = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/" + movieInfo.id + "/watch/providers",
