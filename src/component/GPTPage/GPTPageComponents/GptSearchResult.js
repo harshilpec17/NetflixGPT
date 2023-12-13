@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieCards from "../../MovieClusters/MovieClusterComponents/MovieCards";
 import { useRef } from "react";
 import { addFilteredGptMovieDataBaseResults } from "../../../utils/redux/GPTSearchSlice";
+import GptDisclaimer from "./Gptdisclaimer";
 
 const GptSearchResult = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const GptSearchResult = () => {
 
   return (
     <>
-      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-black bg-opacity-90 rounded">
+      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-black bg-opacity-90 mb-8 rounded">
         <div className="flex flex-wrap flex-col">
           <div className="flex justify-between px-4 items-center bg-[#1D2127]">
             <div className="py-2">
@@ -80,7 +81,7 @@ const GptSearchResult = () => {
                   {gptMovieDataBaseResults[index].map((m, index) => {
                     return (
                       m.poster_path && (
-                        <div key={index}>
+                        <div key={index} className="pb-4">
                           <MovieCards
                             poster={m.poster_path}
                             movie={m}
@@ -88,7 +89,7 @@ const GptSearchResult = () => {
                           />
                           <div>
                             <h1 className="text-white text-center w-48">
-                              {m.original_title}
+                              {m.title}
                             </h1>
                             <h2 className="text-white text-center w-48">
                               Language: {m.original_language}

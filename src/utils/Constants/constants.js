@@ -8,8 +8,7 @@ export const BACKGROUND_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/f9a24fdc-ab8b-4e19-b0f5-4923356a72de/CA-en-20231009-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
 
 export const OPEN_AI_BACKGROUND_IMG =
-  "https://imageio.forbes.com/specials-images/imageserve/65133ef75b24f850bb4ad501/0x0.jpg?format=jpg&crop=3988,2244,x0,y198,safe&height=900&width=1600&fit=bounds";
-
+  "https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 export const API_TOKEN = {
   method: "GET",
   headers: {
@@ -21,6 +20,9 @@ export const API_TOKEN = {
 export const MOVIE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 export const MOVIE_BACKGROUND_URL = "https://image.tmdb.org/t/p/original";
+
+export const EMPTY_PROFILE_AVATAR =
+  "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg";
 
 export const OPEN_AI = process.env.REACT_APP_OPENAI_API_KEY;
 

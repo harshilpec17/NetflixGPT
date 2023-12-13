@@ -1,17 +1,41 @@
 import React from "react";
-import { MOVIE_IMAGE_URL } from "../../../../../utils/Constants/constants";
+import {
+  API_TOKEN,
+  EMPTY_PROFILE_AVATAR,
+  MOVIE_IMAGE_URL,
+} from "../../../../../utils/Constants/constants";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  addCastId,
+  addCastProfile,
+  addCastWork,
+} from "../../../../../utils/redux/castInfoSlice";
 
 const CastCard = ({ cast }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  console.log(cast);
+
+  const handleClick = () => {
+    navigate("/castInfo");
+    dispatch(addCastId(cast.id));
+  };
+
   return (
     <>
-      <div className="w-36 outline-none shadow-2xl flex rounded-lg bg-gray-200">
+      <div
+        onClick={handleClick}
+        className="w-36 outline-none shadow-2xl flex rounded-lg bg-gray-200 cursor-pointer"
+      >
         <div className="flex flex-col">
           <div className="border-b">
             <img
               src={
                 cast.profile_path
                   ? MOVIE_IMAGE_URL + cast.profile_path
-                  : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
+                  : EMPTY_PROFILE_AVATAR
               }
               alt="Profile Img"
               className="bg-gray-200 h-48 w-36 rounded-t-lg   "

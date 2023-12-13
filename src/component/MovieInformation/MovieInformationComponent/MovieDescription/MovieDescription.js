@@ -1,7 +1,12 @@
 import React from "react";
 import { MOVIE_IMAGE_URL } from "../../../../utils/Constants/constants";
+import { useNavigate } from "react-router-dom";
 
 const MovieDescription = ({ movieInfo }) => {
+  const navigate = useNavigate();
+  if (movieInfo === null) {
+    navigate("/browse");
+  }
   return (
     <>
       <div className="flex justify-between shadow-2xl rounded bg-[#1D2127] bg-opacity-90 p-20 mt-12 ">

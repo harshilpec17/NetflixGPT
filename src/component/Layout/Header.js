@@ -66,6 +66,10 @@ const Header = () => {
     gptToggle ? navigate("browse") : navigate("gptSearch");
   };
 
+  const handleHomepage = () => {
+    navigate("browse");
+  };
+
   const selectLanguage = (e) => {
     dispatch(addLanguage(e.target.value));
   };
@@ -102,7 +106,16 @@ const Header = () => {
               >
                 {gptToggle ? "HomePage" : "GPT Search"}
               </button>
-              <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" />
+              {gptToggle !== true && (
+                <button
+                  onClick={handleHomepage}
+                  className="px-6 py-2 outline-none rounded text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                >
+                  HomePage
+                </button>
+              )}
+
+              {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
               {/* Onclick function for the signOut function  */}
               <button
                 onClick={handleSignOut}

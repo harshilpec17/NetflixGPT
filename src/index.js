@@ -15,7 +15,7 @@ import Browse from "./component/NavigatorComponents/Browse";
 import Watch from "./component/MovieInformation/MovieInformationPage";
 import GptPage from "./component/GPTPage/GptPage";
 import { appStore } from "./utils/redux/appStore";
-
+import ShimmerCast from "./component/ShimmerComponent/ShimmerCastProfile";
 import CastProfile from "./component/MovieInformation/MovieInformationComponent/CastAndCrew/CastProfile/CastProfile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

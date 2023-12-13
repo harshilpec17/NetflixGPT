@@ -10,6 +10,7 @@ import useTopRatedTvShows from "../../hooks/TvShowHooks/useTopRatedTvShows";
 
 import { useSelector } from "react-redux";
 import GptPage from "../GPTPage/GptPage";
+import { useEffect } from "react";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -20,6 +21,9 @@ const Browse = () => {
   useTopRatedTvShows();
 
   const gptToggle = useSelector((store) => store.gpt.gptToggleValue);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

@@ -27,7 +27,7 @@ const Watch = () => {
           src={MOVIE_BACKGROUND_URL + movieInfo.backdrop_path}
           alt="Background_Poster"
         />
-        <div className="relative pt-20 px-16">
+        <div className="relative pt-20 px-16 pb-20">
           <MovieDescription movieInfo={movieInfo} />
           <StreamingPlatform movieInfo={movieInfo} />
           <CastAndCrew id={movieInfo.id} />

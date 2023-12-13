@@ -11,7 +11,7 @@ const MovieProvider = ({ provider }) => {
             alt="Provider"
             className="rounded"
           ></img>
-          <h1>{p.provider_name}</h1>
+          <p className="text-center text-sm pt-2">{p.provider_name}</p>
         </div>
       ))}
     </>

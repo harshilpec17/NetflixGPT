@@ -10,7 +10,7 @@ const StreamingPlatform = () => {
     a.name.localeCompare(b.name)
   );
 
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState("null");
   const [filterData, setFilterData] = useState();
 
   const handleChange = (e) => {
@@ -78,9 +78,23 @@ const StreamingPlatform = () => {
           <div>
             {filterData !== undefined ? (
               <div className="flex flex-col  px-4">
+                <div className="ml-6 pb-2">
+                  <img
+                    src="https://www.themoviedb.org/assets/2/v4/logos/justwatch-c2e58adf5809b6871db650fb74b43db2b8f3637fe3709262572553fa056d8d0a.svg"
+                    alt="justWatch logo"
+                    className="w-24 pb-2"
+                  ></img>
+                  <p className="text-white text-xs">
+                    {" "}
+                    The movie is currently available to stream in selected
+                    country. JustWatch makes it easy to find out where you can
+                    legally watch your favourite movies & TV shows online. Visit
+                    JustWatch for more information.
+                  </p>
+                </div>
                 {filterData?.buy && (
                   <div className=" p-2">
-                    <h1 className="ml-6 pb-2 text-2xl font-bold border-b-2">
+                    <h1 className="ml-6 pb-2 text-xl font-bold border-b">
                       To Buy
                     </h1>
                     <div className="flex pt-4 pb-20">
@@ -90,7 +104,7 @@ const StreamingPlatform = () => {
                 )}
                 {filterData?.rent && (
                   <div className=" p-2">
-                    <h1 className="ml-6 pb-2 text-2xl font-bold border-b-2">
+                    <h1 className="ml-6 pb-2 text-xl font-bold border-b">
                       To Rent
                     </h1>
                     <div className="flex pt-4 pb-20">
@@ -101,7 +115,7 @@ const StreamingPlatform = () => {
 
                 {filterData?.flatrate && (
                   <div className=" p-2">
-                    <h1 className="ml-6 pb-2 text-2xl font-bold border-b-2">
+                    <h1 className="ml-6 pb-2 text-xl font-bold border-b">
                       Other Provider
                     </h1>
                     <div className="flex pt-4 pb-20">
@@ -111,7 +125,7 @@ const StreamingPlatform = () => {
                 )}
                 {filterData?.free && (
                   <div className=" p-2">
-                    <h1 className="ml-6 pb-2 text-2xl font-bold border-b-2">
+                    <h1 className="ml-6 pb-2 text-xl font-bold border-b">
                       Free
                     </h1>
                     <div className="flex pt-4 pb-20">
@@ -121,7 +135,7 @@ const StreamingPlatform = () => {
                 )}
                 {filterData?.ads && (
                   <div className=" p-2">
-                    <h1 className="ml-6 pb-2 text-2xl font-bold border-b-2">
+                    <h1 className="ml-6 pb-2 text-xl font-bold border-b ">
                       Watch With Advertisement
                     </h1>
                     <div className="flex pt-4 pb-20">
@@ -130,14 +144,16 @@ const StreamingPlatform = () => {
                   </div>
                 )}
               </div>
-            ) : value !== "null" ? (
-              <h1 className="text-5xl text-center p-20 border mx-4  ">
-                Data not available for selected region
-              </h1>
-            ) : (
-              <h1 className="text-5xl text-center p-20 border mx-4  ">
+            ) : value === "null" ? (
+              <h1 className="text-xl text-center p-6 border mx-4">
                 Please Select Your Region
               </h1>
+            ) : (
+              <div className="border mx-4">
+                <h1 className="text-xl text-black font-semibold text-center m-16 mx-60 p-4 bg-white  ">
+                  Data not available for selected region
+                </h1>
+              </div>
             )}
           </div>
         </div>

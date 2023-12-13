@@ -8,12 +8,15 @@ import {
   addGptSearchResult,
 } from "../../../utils/redux/GPTSearchSlice";
 import { API_TOKEN } from "../../../utils/Constants/constants";
+import GptDisclaimer from "./Gptdisclaimer";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
   const languageSelector = useSelector(
     (store) => store.language.selectedLanguage
   );
+
+  const gptSearchQuery = useSelector((store) => store.gpt.gptSearchResults);
 
   const searchText = useRef(null);
 
@@ -56,7 +59,7 @@ const GptSearchBar = () => {
 
   return (
     <>
-      <div className="relative m-auto flex mt-60 pt-4 px-2  justify-center w-screen items-start max-w-md md:max-w-3xl bg-[#1D2127]">
+      <div className="relative m-auto flex mt-40 pt-4 px-2  justify-center w-screen  items-start max-w-md md:max-w-3xl bg-[#1D2127]">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex shadow rounded-lg overflow-hidden mb-4"
@@ -75,6 +78,7 @@ const GptSearchBar = () => {
           </button>
         </form>
       </div>
+      {gptSearchQuery === null && <GptDisclaimer />}
     </>
   );
 };
