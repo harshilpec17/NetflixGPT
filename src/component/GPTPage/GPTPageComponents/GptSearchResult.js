@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieCards from "../../MovieClusters/MovieClusterComponents/MovieCards";
 import { useRef } from "react";
 import { addFilteredGptMovieDataBaseResults } from "../../../utils/redux/GPTSearchSlice";
-import GptDisclaimer from "./Gptdisclaimer";
 
 const GptSearchResult = () => {
   const dispatch = useDispatch();
