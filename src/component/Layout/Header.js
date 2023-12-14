@@ -1,16 +1,19 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../../utils/loginConfig/Firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../../utils/redux/userSlice";
-import { LOGO, PROFILE_IMG, langs } from "../../utils/Constants/constants";
+import { LOGO, langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
 import { addLanguage } from "../../utils/redux/languageSlice";
+import NavigationDot from "../../utils/Asset/Navigationdot.svg";
+import { IoReorderThree } from "react-icons/io5";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
   const gptToggle = useSelector((store) => store.gpt.gptToggleValue);
+  const [navToggle, setNavToggle] = useState(true);
   // for updating the redux store, we are using the the useDispatch hook.
   const dispatch = useDispatch();
 
@@ -76,53 +79,65 @@ const Header = () => {
 
   return (
     <>
-      <div className="px-10 z-50 w-screen flex bg-gradient-to-b from-black absolute">
+      <div className="px-3 md:px-10 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
         <div>
-          <img className="w-60" src={LOGO} alt="Netflix logo" />
+          <img className="w-40 md:w-60 mr-3" src={LOGO} alt="Netflix logo" />
         </div>
+        {user && (
+          <div>
+            <img
+              src={NavigationDot}
+              alt="Navigation"
+              className="w-8 mt-4 relative block md:hidden bg-white"
+              onClick={() => setNavToggle(!navToggle)}
+            ></img>
+          </div>
+        )}
       </div>
       <div>
-        {user && (
-          <div
-            className={`w-screen items-center py-4 px-10 
-            absolute z-50 flex justify-end`}
-          >
-            <div className="flex items-center justify-between gap-6">
-              {gptToggle && (
-                <select
-                  className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
-                  onChange={selectLanguage}
-                >
-                  {langs.map((ref) => (
-                    <option key={ref.identifier} value={ref.identifier}>
-                      {ref.lang}
-                    </option>
-                  ))}
-                </select>
-              )}
-              <button
-                onClick={handleGptToggle}
-                className="px-6 py-2 outline-none rounded text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
-              >
-                {gptToggle ? "HomePage" : "GPT Search"}
-              </button>
-              {gptToggle !== true && (
+        {user && navToggle && (
+          <div>
+            <div
+              className={`w-screen items-center py-2 md:py-6 px-3 md:px-10 
+              absolute md:z-50 flex justify-end`}
+            >
+              <div className="flex items-center z-50 justify-between gap-3 mt-16 md:mt-0 md:gap-6">
+                {gptToggle && (
+                  <select
+                    className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
+                    onChange={selectLanguage}
+                  >
+                    {langs.map((ref) => (
+                      <option key={ref.identifier} value={ref.identifier}>
+                        {ref.lang}
+                      </option>
+                    ))}
+                  </select>
+                )}
                 <button
-                  onClick={handleHomepage}
-                  className="px-6 py-2 outline-none rounded text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                  onClick={handleGptToggle}
+                  className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
                 >
-                  HomePage
+                  {gptToggle ? "HomePage" : "GPT Search"}
                 </button>
-              )}
+                {gptToggle !== true && (
+                  <button
+                    onClick={handleHomepage}
+                    className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                  >
+                    HomePage
+                  </button>
+                )}
 
-              {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
-              {/* Onclick function for the signOut function  */}
-              <button
-                onClick={handleSignOut}
-                className="px-8 py-2 outline-none text-white font-bold rounded bg-[#E50815] cursor-pointer"
-              >
-                Sign Out
-              </button>
+                {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
+                {/* Onclick function for the signOut function  */}
+                <button
+                  onClick={handleSignOut}
+                  className="md:px-6 px-3 py-1 md:py-2 outline-none text-white font-semibold md:font-bold rounded bg-[#E50815] cursor-pointer"
+                >
+                  Sign Out
+                </button>
+              </div>
             </div>
           </div>
         )}
