@@ -21,10 +21,10 @@ const Watch = () => {
 
   return (
     <>
-      <div className=" bg-[#12100E] bg-cover bg-center">
+      <div className="bg-[#12100E] bg-cover bg-center">
         <img
-          className="fixed w-screen"
-          src={MOVIE_BACKGROUND_URL + movieInfo.backdrop_path}
+          className="fixed bg-cover w-screen"
+          src={MOVIE_BACKGROUND_URL + movieInfo.poster_path}
           alt="Background_Poster"
         />
         <div className="relative pt-20 px-16 pb-20">
