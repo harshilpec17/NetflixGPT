@@ -33,7 +33,7 @@ const MovieCards = ({ poster, movie, id }) => {
           <div>
             <div
               onClick={handleClick}
-              className="w-32 md:w-48 md:my-4 my-2 mx-1 md:mx-2 shadow-2xl hover:scale-110 delay-150 duration-300 ease-in-out"
+              className="w-28 md:w-48 md:my-4 my-2 mx-1 md:mx-2 shadow-2xl hover:scale-110 delay-150 duration-300 ease-in-out"
             >
               <img alt="Movie Poster" src={MOVIE_IMAGE_URL + poster}></img>
             </div>

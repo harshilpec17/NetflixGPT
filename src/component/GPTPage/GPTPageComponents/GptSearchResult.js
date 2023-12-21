@@ -41,11 +41,11 @@ const GptSearchResult = () => {
     <>
       <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-black bg-opacity-90 mb-8 rounded">
         <div className="flex flex-wrap flex-col">
-          <div className="flex justify-between px-4 items-center bg-[#1D2127]">
+          <div className="flex justify-between px-2 md:px-4 items-center bg-[#1D2127]">
             <div className="py-2">
               <form
                 onSubmit={(e) => e.preventDefault()}
-                className="flex shadow rounded-lg overflow-hidden "
+                className="flex shadow rounded-sm md:rounded-lg overflow-hidden "
               >
                 <input
                   className="outline-none py-1 px-2 "
@@ -55,7 +55,7 @@ const GptSearchResult = () => {
                 ></input>
                 <button
                   onClick={handleChange}
-                  className="outline-none bg-[#024B58] text-[#D1D7E0] px-6 md:px-8 py-2 shrink-0"
+                  className="outline-none bg-[#024B58] text-[#D1D7E0] px-5 md:px-8 py-1 shrink-0"
                 >
                   Filter
                 </button>
@@ -63,7 +63,7 @@ const GptSearchResult = () => {
             </div>
             <button
               onClick={handleReset}
-              className="outline-none rounded-lg bg-[#024B58] text-[#D1D7E0] px-6 md:px-8 py-2"
+              className="outline-none rounded-sm md:rounded-lg bg-[#024B58] text-[#D1D7E0] px-5 md:px-8 py-1"
             >
               Reset
             </button>
@@ -71,8 +71,8 @@ const GptSearchResult = () => {
           {filteredGptMovieDataBaseResult === null &&
             gptSearchResults.map((movie, index) => (
               <div key={index}>
-                <div className="py-3">
-                  <h1 className="p-2 text-xl bg-[#024B58] text-[#D1D7E0]">
+                <div className="py-1 md:py-3">
+                  <h1 className="p-2 md:text-xl bg-[#024B58] text-[#D1D7E0]">
                     {movie}
                   </h1>
                 </div>
@@ -87,10 +87,10 @@ const GptSearchResult = () => {
                             id={m.id}
                           />
                           <div>
-                            <h1 className="text-white text-center w-48">
+                            <h1 className="text-white text-center w-28 md:w-48">
                               {m.title}
                             </h1>
-                            <h2 className="text-white text-center w-48">
+                            <h2 className="text-white text-center w-28 md:w-48">
                               Language: {m.original_language}
                             </h2>
                           </div>
@@ -102,7 +102,7 @@ const GptSearchResult = () => {
               </div>
             ))}
 
-          <div className="flex flex-row flex-wrap justify-center">
+          <div className="flex flex-row flex-wrap justify-center items-center py-3">
             {filteredGptMovieDataBaseResult &&
               filteredGptMovieDataBaseResult.map((m, index) => (
                 <div key={index}>

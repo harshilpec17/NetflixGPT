@@ -8,7 +8,6 @@ import { LOGO, langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
 import { addLanguage } from "../../utils/redux/languageSlice";
 import NavigationDot from "../../utils/Asset/Navigationdot.svg";
-import { IoReorderThree } from "react-icons/io5";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -79,9 +78,9 @@ const Header = () => {
 
   return (
     <>
-      <div className="px-3 md:px-10 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
+      <div className="pr-3 md:px-10 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
         <div>
-          <img className="w-40 md:w-60 mr-3" src={LOGO} alt="Netflix logo" />
+          <img className="w-40 md:w-60" src={LOGO} alt="Netflix logo" />
         </div>
         {user && (
           <div>
@@ -98,8 +97,8 @@ const Header = () => {
         {user && navToggle && (
           <div>
             <div
-              className={`w-screen items-center py-2 md:py-6 px-3 md:px-10 
-              absolute md:z-50 flex justify-end`}
+              className={`w-screen items-center py-2 md:py-6 px-4 md:px-10 
+              absolute md:z-50 flex justify-between md:justify-end`}
             >
               <div className="flex items-center z-50 justify-between gap-3 mt-16 md:mt-0 md:gap-6">
                 {gptToggle && (

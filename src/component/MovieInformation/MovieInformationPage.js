@@ -23,7 +23,7 @@ const Watch = () => {
     <>
       <div className="bg-[#12100E] bg-cover bg-center">
         <img
-          className="fixed bg-cover w-screen block md:hidden"
+          className="fixed bg-cover h-screen w-screen block md:hidden"
           src={MOVIE_BACKGROUND_URL + movieInfo.poster_path}
           alt="Background_Poster"
         />
@@ -32,7 +32,7 @@ const Watch = () => {
           src={MOVIE_BACKGROUND_URL + movieInfo.backdrop_path}
           alt="Background_Poster"
         />
-        <div className="relative pt-20 px-16 pb-20">
+        <div className="relative pt-20 px-3 md:px-16 pb-3 md:pb-20">
           <MovieDescription movieInfo={movieInfo} />
           <StreamingPlatform movieInfo={movieInfo} />
           <CastAndCrew id={movieInfo.id} />

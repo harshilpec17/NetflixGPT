@@ -1,16 +1,11 @@
 import React from "react";
 import {
-  API_TOKEN,
   EMPTY_PROFILE_AVATAR,
   MOVIE_IMAGE_URL,
 } from "../../../../../utils/Constants/constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  addCastId,
-  addCastProfile,
-  addCastWork,
-} from "../../../../../utils/redux/castInfoSlice";
+import { addCastId } from "../../../../../utils/redux/castInfoSlice";
 
 const CastCard = ({ cast }) => {
   const navigate = useNavigate();
@@ -27,7 +22,7 @@ const CastCard = ({ cast }) => {
     <>
       <div
         onClick={handleClick}
-        className="w-36 outline-none shadow-2xl flex rounded-lg bg-gray-200 cursor-pointer"
+        className="md:w-36 w-20 outline-none shadow-2xl flex rounded-lg bg-gray-200 cursor-pointer"
       >
         <div className="flex flex-col">
           <div className="border-b">
@@ -38,17 +33,17 @@ const CastCard = ({ cast }) => {
                   : EMPTY_PROFILE_AVATAR
               }
               alt="Profile Img"
-              className="bg-gray-200 h-48 w-36 rounded-t-lg   "
+              className="bg-gray-200 md:h-48 md:w-36 w-20 h-28 rounded-t-sm md:rounded-t-lg"
             ></img>
           </div>
-          <div className="text-center h-full  py-4 bg-white rounded-b-lg">
-            <p className="text-black hover:text-gray-400 text-[16px] font-bold">
+          <div className="text-center h-full md:py-4 py-1 bg-white rounded-b-sm md:rounded-b-lg">
+            <p className="text-black px-1 hover:text-gray-400 text-[12px] md:text-[16px] font-bold">
               {cast.original_name || cast.name || "N/A"}
             </p>
-            <p className="text-gray-400 text-[12px] font-light">
+            <p className="text-gray-400 px-1 md:text-[12px] text-[10px] font-light">
               {cast.character || "N/A"}
             </p>
-            <p className="text-gray-400 text-[12px] font-light">
+            <p className="text-gray-400 md:text-[12px] text-[10px] font-light">
               {cast.job || cast.known_for_department || "N/A"}
             </p>
           </div>
