@@ -16,7 +16,6 @@ const GptPage = () => {
       />
       <div className="flex flex-col bg-black">
         <GptSearchBar />
-
         <GptSearchResult />
       </div>
     </>

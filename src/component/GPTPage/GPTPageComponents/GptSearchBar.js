@@ -9,6 +9,8 @@ import {
 } from "../../../utils/redux/GPTSearchSlice";
 import { API_TOKEN } from "../../../utils/Constants/constants";
 import GptDisclaimer from "./Gptdisclaimer";
+import ShimmerCastProfile from "../../ShimmerComponent/ShimmerCastProfile";
+import ShimmerGPT from "../../ShimmerComponent/ShimmerGPT";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,8 @@ const GptSearchBar = () => {
   );
 
   const gptSearchQuery = useSelector((store) => store.gpt.gptSearchResults);
+
+  const movie = useSelector((store) => store.gpt.gptMovieDataBaseResults);
 
   const searchText = useRef(null);
 
@@ -59,7 +63,7 @@ const GptSearchBar = () => {
 
   return (
     <>
-      <div className="relative m-auto flex mt-32 md:mt-40 pt-4 px-2  justify-center w-screen  items-start max-w-md md:max-w-3xl bg-[#1D2127]">
+      <div className="relative m-auto flex mt-32 md:mt-28 pt-4 px-2  justify-center w-screen  items-start max-w-md md:max-w-3xl bg-[#1D2127]">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex shadow rounded-sm md:rounded-lg overflow-hidden mb-4"
@@ -78,7 +82,11 @@ const GptSearchBar = () => {
           </button>
         </form>
       </div>
-      {gptSearchQuery === null && <GptDisclaimer />}
+      {gptSearchQuery === null ? (
+        <GptDisclaimer />
+      ) : movie === null ? (
+        <ShimmerGPT />
+      ) : null}
     </>
   );
 };

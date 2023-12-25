@@ -21,6 +21,9 @@ const Login = () => {
   // If something goes wrong it will use the display the message to the user.
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const [emailValue, setEmailValue] = useState(null);
+  const [passwordValue, setPasswordValue] = useState(null);
+
   // for updating the redux store, we are using the the useDispatch hook.
   const dispatch = useDispatch();
 
@@ -127,6 +130,11 @@ const Login = () => {
     nameRef.current?.setSelectionRange(0, 100);
   };
 
+  const handleDefault = () => {
+    setEmailValue("test@gmail.com");
+    setPasswordValue("Test@12345");
+  };
+
   return (
     <>
       {/* background Image mobile responsive */}
@@ -143,7 +151,7 @@ const Login = () => {
             onSubmit={(e) => e.preventDefault()}
             className="flex flex-col text-white "
           >
-            <h1 className="p-2 m-2 text-white font-bold text-4xl">
+            <h1 className="p-2 m-2 text-white font-bold text-xl md:text-4xl">
               {isSignIn ? "Sign In" : "Sign Up"}
             </h1>
             {/* If the user wants to SingUp then the box will be present or else, it will not show on the screen */}
@@ -162,6 +170,7 @@ const Login = () => {
               placeholder="Email address or User Name"
               className="p-2 m-2 max-w-md bg-[#333333] rounded outline-none"
               ref={emailRef}
+              value={emailValue}
               onClick={() => selectEmail()}
             ></input>
 
@@ -170,6 +179,7 @@ const Login = () => {
               type="password"
               placeholder="Password"
               ref={passwordRef}
+              value={passwordValue}
               onClick={() => selectPassword()}
               className="p-2 m-2 max-w-md bg-[#333333] rounded outline-none"
             ></input>
@@ -194,6 +204,14 @@ const Login = () => {
               ? "New to Netflix? Sign up now."
               : "Already Register ? Sign In here"}
           </h3>
+          {isSignIn ? (
+            <h3
+              className="text-black bg-green-200 text-sm font-semibold m-2 p-1 cursor-pointer"
+              onClick={handleDefault}
+            >
+              Continue Without Login or SignUp
+            </h3>
+          ) : null}
         </div>
       </div>
     </>

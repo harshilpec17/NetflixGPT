@@ -44,7 +44,7 @@ const StreamingPlatform = () => {
   }, [value]);
 
   return (
-    <div className="text-[#D1D7E0] bg-[#1D2127] rounded bg-opacity-90 mt-12">
+    <div className="text-[#D1D7E0] bg-[#1D2127] pb-4x x rounded bg-opacity-90 mt-12">
       <h1 className="text-center md:p-4 p-2 text-xl md:text-4xl bg-[#024B58] ">
         Where to Watch ?
       </h1>

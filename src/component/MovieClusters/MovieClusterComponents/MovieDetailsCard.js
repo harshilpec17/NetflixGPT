@@ -1,24 +1,13 @@
-import React, { useCallback, useState } from "react";
-
 // import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { MOVIE_IMAGE_URL } from "../../../utils/Constants/constants";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addMovieToggle,
-  addSelectedMovie,
-} from "../../../utils/redux/movieDescription";
-import { ImCross } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { addSelectedMovie } from "../../../utils/redux/movieDescription";
 
 const MovieDetailsCard = ({ details }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-
-  const [ownValue, setOwnValue] = useState(true);
-
-  const cross = useSelector((store) => store.movieDescription.movieToggle);
-  console.log(cross);
 
   // when you are rendering the child component, you cannot update or change anything in the parent component, It will invoke the
   // bad setState() call, which gives you an error shown as
@@ -40,57 +29,42 @@ const MovieDetailsCard = ({ details }) => {
     dispatch(addSelectedMovie(details));
   };
 
-  const handleToggle = () => {
-    dispatch(addMovieToggle(null));
-    dispatch(addMovieToggle(false));
-    setOwnValue((ownValue) => !ownValue);
-  };
-
   return (
     <>
       <div>
-        {cross ? (
-          <>
-            <div
-              onClick={handleToggle}
-              className="bg-orange-500 float-right p-2 rounded-2xl"
-            >
-              <ImCross />
-            </div>
-
-            <div className="w-96 max-w-md p-3 md:mr-5 text-black bg-white bg-opacity-90 rounded-md overflow-none">
-              <div className="flex">
-                <div className=" w-1/2 flex flex-col justify-center ml-2 pt-2">
-                  <img
-                    className="md:w-32 w-28 cursor-pointer rounded"
-                    alt="Movie Card"
-                    src={MOVIE_IMAGE_URL + details.poster_path}
-                  />
-                  <div className="max-w-xs w-28 md:w-32 text-md md:text-lg text-center pt-2 font-bold">
-                    {details.original_title || details.original_name}
-                  </div>
+        <>
+          <div className="w-96 max-w-md p-3 md:mr-5 text-black bg-white bg-opacity-90 rounded-md overflow-none">
+            <div className="flex">
+              <div className=" w-1/2 flex flex-col justify-center ml-2 pt-2">
+                <img
+                  className="md:w-32 w-28 cursor-pointer rounded"
+                  alt="Movie Card"
+                  src={MOVIE_IMAGE_URL + details.poster_path}
+                />
+                <div className="max-w-xs w-28 md:w-32 text-md md:text-lg text-center pt-2 font-bold">
+                  {details.original_title || details.original_name}
                 </div>
-                <div className="flex flex-col justify-around ml-2 pt-2">
-                  <div className="text-sm m-2 font-bold text-justify ">
-                    Popularity: {details.popularity}
-                  </div>
-                  <div className="text-xs m-2 text-justify ">
-                    {details.overview}
-                  </div>
+              </div>
+              <div className="flex flex-col justify-around ml-2 pt-2">
+                <div className="text-sm m-2 font-bold text-justify ">
+                  Popularity: {details.popularity}
+                </div>
+                <div className="text-xs m-2 text-justify ">
+                  {details.overview}
+                </div>
 
-                  <div className="m-auto">
-                    <button
-                      onClick={handleClick}
-                      className="bg-black text-white p-2 px-8 text-xl font-bold rounded-lg hover:bg-opacity-70"
-                    >
-                      ▶️ Play
-                    </button>
-                  </div>
+                <div className="m-auto">
+                  <button
+                    onClick={handleClick}
+                    className="bg-black text-white p-2 px-8 text-xl font-bold rounded-lg hover:bg-opacity-70"
+                  >
+                    ▶️ Play
+                  </button>
                 </div>
               </div>
             </div>
-          </>
-        ) : null}
+          </div>
+        </>
       </div>
     </>
   );
