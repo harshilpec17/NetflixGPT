@@ -4,6 +4,7 @@ import MovieDescription from "./MovieInformationComponent/MovieDescription/Movie
 import StreamingPlatform from "./MovieInformationComponent/StreamingPlatform/StreamingPlatform";
 
 import useWatchProvider from "../../hooks/WatchProviderHook/useWatchProvider";
+import MovieInfoTrailer from "./MovieInformationComponent/MovieInfoTrailer";
 
 import CastAndCrew from "./MovieInformationComponent/CastAndCrew/CastAndCrew";
 import { useEffect } from "react";
@@ -35,6 +36,7 @@ const Watch = () => {
         <div className="relative pt-20 px-3 md:px-16 pb-3 md:pb-20">
           <MovieDescription movieInfo={movieInfo} />
           <StreamingPlatform movieInfo={movieInfo} />
+          <MovieInfoTrailer movieId={movieInfo.id} />
           <CastAndCrew id={movieInfo.id} />
         </div>
       </div>

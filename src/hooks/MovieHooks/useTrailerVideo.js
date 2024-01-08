@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import { API_TOKEN } from "../../utils/Constants/constants";
-import { addTrailerVideo } from "../../utils/redux/moviesSlice";
 import { useEffect } from "react";
+import { addMovieVideo } from "../../utils/redux/movieDescription";
+import { addTrailerVideo } from "../../utils/redux/moviesSlice";
 
 const useTrailerVideo = ({ movieId }) => {
   const dispatch = useDispatch();
@@ -17,9 +18,11 @@ const useTrailerVideo = ({ movieId }) => {
       (video) => video?.type === "Trailer"
     );
 
+    console.log(filteredTrailer);
     const trailer = filteredTrailer.length
       ? filteredTrailer[0]
       : filteredTrailer;
+    dispatch(addMovieVideo(trailer));
     dispatch(addTrailerVideo(trailer));
   };
 

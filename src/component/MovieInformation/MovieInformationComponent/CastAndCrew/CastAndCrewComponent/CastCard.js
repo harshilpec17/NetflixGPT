@@ -11,8 +11,6 @@ const CastCard = ({ cast }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(cast);
-
   const handleClick = () => {
     navigate("/castInfo");
     dispatch(addCastId(cast.id));
