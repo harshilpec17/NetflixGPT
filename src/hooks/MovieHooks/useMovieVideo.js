@@ -7,28 +7,11 @@ const useMovieVideo = ({ movieId }) => {
   const dispatch = useDispatch();
 
   const MovieVideo = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/tv/${movieId}/videos?language=en-US`,
-      API_TOKEN
-    );
     try {
-      if (data.status === 200) {
-        const json = await data.json();
-        const results = json.results;
-
-        const filteredTrailer = results.filter(
-          (video) => video?.type === "Trailer"
-        );
-
-        console.log(filteredTrailer);
-        if (filteredTrailer.length >= 0) {
-          const trailer = filteredTrailer.length
-            ? filteredTrailer[0]
-            : filteredTrailer;
-          dispatch(addMovieVideo(trailer));
-        }
-        dispatch(addMovieVideo(filteredTrailer));
-      }
+      const data = await fetch(
+        `https://api.themoviedb.org/3/tv/${movieId}/videos?language=en-US`,
+        API_TOKEN
+      );
 
       if (data.status !== 200) {
         const data = await fetch(
@@ -41,6 +24,19 @@ const useMovieVideo = ({ movieId }) => {
         );
 
         console.log(filteredTrailer);
+        const trailer = filteredTrailer.length
+          ? filteredTrailer[0]
+          : filteredTrailer;
+        dispatch(addMovieVideo(trailer));
+      }
+      const json = await data.json();
+      const results = json.results;
+      const filteredTrailer = results.filter(
+        (video) => video?.type === "Trailer"
+      );
+
+      console.log(filteredTrailer);
+      {
         const trailer = filteredTrailer.length
           ? filteredTrailer[0]
           : filteredTrailer;
