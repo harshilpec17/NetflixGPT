@@ -1,17 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
-
 import MovieCards from "../../MovieClusters/MovieClusterComponents/MovieCards";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addFilteredGptMovieDataBaseResults } from "../../../utils/redux/GPTSearchSlice";
 
 const GptSearchResult = () => {
   const dispatch = useDispatch();
+
+  const [localFilter, setLocalFilter] = useState(null);
   const {
     gptSearchResults,
     gptMovieDataBaseResults,
     filteredGptMovieDataBaseResult,
   } = useSelector((store) => store.gpt);
   const languageChosen = useRef(null);
+
+  useEffect(() => {
+    dispatch(addFilteredGptMovieDataBaseResults(null));
+  }, [gptMovieDataBaseResults]);
 
   if (!gptSearchResults) return null;
 
@@ -26,10 +31,8 @@ const GptSearchResult = () => {
         languageValue === movie.original_language ? arr2.push(movie) : null
       )
     );
-
+    setLocalFilter(arr2);
     dispatch(addFilteredGptMovieDataBaseResults(arr2));
-
-    // languageValue = languageChosen.current.value = "";
   };
 
   const handleReset = () => {
