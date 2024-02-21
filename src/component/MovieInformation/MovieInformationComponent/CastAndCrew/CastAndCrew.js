@@ -19,7 +19,6 @@ const CastAndCrew = ({ id }) => {
         } else {
           dispatch(addCast(null));
         }
-        console.log(MoviePeopleData);
 
         if (Object.keys(MoviePeopleData.cast).length === 0) {
           const tvData = await fetch(

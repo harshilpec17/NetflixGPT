@@ -17,7 +17,7 @@ import GptPage from "./component/GPTPage/GptPage";
 import { appStore } from "./utils/redux/appStore";
 
 import CastProfile from "./component/MovieInformation/MovieInformationComponent/CastAndCrew/CastProfile/CastProfile";
-import Error from "./Error";
+import Error from "../src/component/Layout/Error";
 import ContactUs from "./component/Layout/ContactUs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

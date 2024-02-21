@@ -10,14 +10,6 @@ const MovieCards = ({ poster, movie, id }) => {
   const handleClick = () => {
     dispatch(addSelectedMovie(movie));
   };
-  // const [cross, setCross] = useState(false);
-  // console.log(cross);
-
-  // const handleToggle = () => {
-  //   dispatch(addMovieToggle(null));
-  //   const value = setCross(!cross);
-  //   dispatch(addMovieToggle(value));
-  // };
 
   if (!poster) return null;
   return (

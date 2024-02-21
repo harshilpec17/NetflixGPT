@@ -4,7 +4,6 @@ import { useNavigate, useRouteError } from "react-router";
 const Error = () => {
   const navigate = useNavigate();
   let error = useRouteError();
-  console.error(error);
 
   return (
     <div className="bg-gradient-to-r from-purple-800 to-blue-400">
@@ -12,8 +11,9 @@ const Error = () => {
         <div className="bg-gray-950 shadow overflow-hidden sm:rounded-lg pb-8">
           <div className="text-center pt-8">
             <h1 className="text-9xl font-bold text-purple-400">🤯</h1>
+
             <h1 className="text-5xl font-medium py-8 text-white">
-              Uh-oh! Something went wrong. 🛠️
+              {error.data} 🛠️
             </h1>
             <p className="text-2xl pb-8 px-12 font-medium text-white">
               Our team has been notified, and we're working to fix it. Please
@@ -27,7 +27,7 @@ const Error = () => {
               HOME
             </button>
             <button
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate("contact")}
               className="bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-500 text-white font-semibold px-6 py-3 rounded-md"
             >
               Contact Us

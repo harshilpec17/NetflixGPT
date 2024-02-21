@@ -8,7 +8,6 @@ import { langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
 import { addLanguage } from "../../utils/redux/languageSlice";
 import NavigationDot from "../../utils/Asset/Navigationdot.svg";
-
 import HEADERLOGO from "../../logo/BrandImage.png";
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -73,6 +72,10 @@ const Header = () => {
     navigate("browse");
   };
 
+  const handleContact = () => {
+    navigate("contact");
+  };
+
   const selectLanguage = (e) => {
     dispatch(addLanguage(e.target.value));
   };
@@ -128,6 +131,12 @@ const Header = () => {
                     HomePage
                   </button>
                 )}
+                <button
+                  onClick={handleContact}
+                  className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                >
+                  Contact Us
+                </button>
 
                 {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
                 {/* Onclick function for the signOut function  */}
