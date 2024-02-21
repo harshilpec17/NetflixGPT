@@ -1,6 +1,6 @@
 // import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { MOVIE_IMAGE_URL } from "../../../utils/Constants/constants";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addSelectedMovie } from "../../../utils/redux/movieDescription";
 

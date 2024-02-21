@@ -5,7 +5,6 @@ import StreamingPlatform from "./MovieInformationComponent/StreamingPlatform/Str
 
 import useWatchProvider from "../../hooks/WatchProviderHook/useWatchProvider";
 import MovieInfoTrailer from "./MovieInformationComponent/MovieInfoTrailer";
-
 import CastAndCrew from "./MovieInformationComponent/CastAndCrew/CastAndCrew";
 import { useEffect } from "react";
 
@@ -18,6 +17,7 @@ const Watch = () => {
     window.scrollTo(0, 0);
   }, []);
   useWatchProvider({ movieInfo });
+
   if (movieInfo === null) return;
 
   return (

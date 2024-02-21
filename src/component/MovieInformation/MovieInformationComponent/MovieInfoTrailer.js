@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import useMovieVideo from "../../../hooks/MovieHooks/useMovieVideo";
@@ -9,6 +9,7 @@ const MovieInfoTrailer = ({ movieId }) => {
   const trailerKey = useSelector(
     (store) => store.movieDescription.movieVideo.key
   );
+
   return (
     <>
       <div>

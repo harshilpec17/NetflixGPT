@@ -15,19 +15,22 @@ import Browse from "./component/NavigatorComponents/Browse";
 import Watch from "./component/MovieInformation/MovieInformationPage";
 import GptPage from "./component/GPTPage/GptPage";
 import { appStore } from "./utils/redux/appStore";
-import ShimmerCast from "./component/ShimmerComponent/ShimmerCastProfile";
+
 import CastProfile from "./component/MovieInformation/MovieInformationComponent/CastAndCrew/CastProfile/CastProfile";
+import Error from "./Error";
+import ContactUs from "./component/Layout/ContactUs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="" element={<App />}>
+      <Route path="" element={<App />} errorElement={<Error />}>
         <Route path="/" element={<Login />}></Route>
         <Route path="browse" element={<Browse />}></Route>
         <Route path="gptSearch" element={<GptPage />}></Route>
         <Route path="watch" element={<Watch />}></Route>
         <Route path="castInfo" element={<CastProfile />}></Route>
+        <Route path="contact" element={<ContactUs />}></Route>
       </Route>
     </>
   )

@@ -10,7 +10,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/redux/userSlice";
-import { BACKGROUND_IMG } from "../../utils/Constants/constants";
+import BACKGROUND_IMG from "../../logo/backgroundImage.png";
 
 const Login = () => {
   // This hook will check and modify the component to login or SignUp by checking which state are active
@@ -206,7 +206,7 @@ const Login = () => {
           </h3>
           {isSignIn ? (
             <h3
-              className="text-black bg-green-200 text-sm font-semibold m-2 p-1 cursor-pointer"
+              className="bg-orange-400 text-sm font-semibold m-2 p-1 cursor-pointer"
               onClick={handleDefault}
             >
               Continue Without Login or SignUp

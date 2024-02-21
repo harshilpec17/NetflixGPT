@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-import { LOGO } from "../../utils/Constants/constants";
+import FOOTERLOGO from "../../logo/BrandImage.png";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate();
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noreferrer");
   };
@@ -63,9 +65,14 @@ const Footer = () => {
             </span>
           </div>
           <div className="md:w-1/3 md:px-16 px-1 flex flex-wrap md:flex-col flex-row justify-between md:justify-around items-center md:items-end">
-            <img src={LOGO} alt="Logo" className="md:w-48 w-32 "></img>
+            <img
+              src={FOOTERLOGO}
+              alt="Logo"
+              className="md:w-48 w-32 cursor-pointer"
+              onClick={() => navigate("browse")}
+            ></img>
 
-            <p className="text-xs pr-6 md:pb-6 md:pr-8">
+            <p className="text-xs pr-6 md:pb-6 md:pr-12">
               copyright2024@Harshil
             </p>
           </div>

@@ -4,11 +4,12 @@ import { auth } from "../../utils/loginConfig/Firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../../utils/redux/userSlice";
-import { LOGO, langs } from "../../utils/Constants/constants";
+import { langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
 import { addLanguage } from "../../utils/redux/languageSlice";
 import NavigationDot from "../../utils/Asset/Navigationdot.svg";
 
+import HEADERLOGO from "../../logo/BrandImage.png";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const gptToggle = useSelector((store) => store.gpt.gptToggleValue);
@@ -78,9 +79,9 @@ const Header = () => {
 
   return (
     <>
-      <div className="pr-3 md:px-10 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
-        <div>
-          <img className="w-40 md:w-60" src={LOGO} alt="Netflix logo" />
+      <div className="pr-3 md:px-6 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
+        <div className="w-60 cursor-pointer h-24 ">
+          <img alt="brandLogo" src={HEADERLOGO} className="md:w-60 w-36 p-2" />
         </div>
         {user && (
           <div>
