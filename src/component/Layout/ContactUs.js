@@ -14,7 +14,7 @@ const ContactUs = () => {
   return (
     user && (
       <>
-        <div className=" w-full text-[#D1D7E0] pt-32 pb-10 bg-sky-950 ">
+        <div className="w-full text-[#D1D7E0] pt-40 md:pt-32 pb-10 bg-sky-950 ">
           <div className="container mx-auto py-8 bg-black rounded-lg">
             <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
               <div className="col-span-4 sm:col-span-3">

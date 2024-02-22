@@ -58,7 +58,7 @@ const CastAndCrew = ({ id }) => {
 
   return (
     <>
-      <div className="text-[#D1D7E0] bg-white bg-fixed rounded mt-6 pb-4 md:mt-12">
+      <div className="text-[#D1D7E0] bg-white bg-fixed rounded mt-4 pb-4 md:mt-12">
         <h1 className="text-center p-2 text-xl md:p-4 md:text-4xl bg-[#024B58] ">
           Cast and Crew
         </h1>

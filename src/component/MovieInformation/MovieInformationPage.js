@@ -22,18 +22,18 @@ const Watch = () => {
 
   return (
     <>
-      <div className="bg-[#12100E] bg-cover bg-center">
+      <div className="bg-[#12100E] bg-cover bg-center overflow-hidden">
         <img
           className="fixed bg-cover h-screen w-screen block md:hidden"
           src={MOVIE_BACKGROUND_URL + movieInfo.poster_path}
           alt="Background_Poster"
         />
         <img
-          className="fixed bg-cover w-screen hidden md:block"
+          className="fixed bg-cover h-screen w-screen hidden md:block"
           src={MOVIE_BACKGROUND_URL + movieInfo.backdrop_path}
           alt="Background_Poster"
         />
-        <div className="relative pt-20 px-3 md:px-16 pb-3 md:pb-20">
+        <div className="relative pt-28 md:pt-20 px-3 md:px-16 pb-3 md:pb-20">
           <MovieDescription movieInfo={movieInfo} />
           <StreamingPlatform movieInfo={movieInfo} />
           <MovieInfoTrailer movieId={movieInfo.id} />

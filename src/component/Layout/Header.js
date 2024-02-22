@@ -8,6 +8,7 @@ import { langs } from "../../utils/Constants/constants";
 import { GptToggle } from "../../utils/redux/GPTSearchSlice";
 import { addLanguage } from "../../utils/redux/languageSlice";
 import NavigationDot from "../../utils/Asset/Navigationdot.svg";
+
 import HEADERLOGO from "../../logo/BrandImage.png";
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -84,7 +85,7 @@ const Header = () => {
     <>
       <div className="pr-3 md:px-6 z-50 w-screen flex justify-between bg-gradient-to-b from-black absolute">
         <div className="w-60 cursor-pointer h-24 ">
-          <img alt="brandLogo" src={HEADERLOGO} className="md:w-60 w-36 p-2" />
+          <img alt="brandLogo" src={HEADERLOGO} className="lg:w-60 w-36 p-2" />
         </div>
         {user && (
           <div>
@@ -99,54 +100,52 @@ const Header = () => {
       </div>
       <div>
         {user && navToggle && (
-          <div>
-            <div
-              className={`w-screen items-center py-2 md:py-6 px-4 md:px-10 
+          <div
+            className={`w-screen items-center my-2 md:py-6 px-4 md:px-10 
               absolute md:z-50 flex justify-between md:justify-end`}
-            >
-              <div className="flex items-center z-50 justify-between gap-3 mt-16 md:mt-0 md:gap-6">
-                {gptToggle && (
-                  <select
-                    className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
-                    onChange={selectLanguage}
-                  >
-                    {langs.map((ref) => (
-                      <option key={ref.identifier} value={ref.identifier}>
-                        {ref.lang}
-                      </option>
-                    ))}
-                  </select>
-                )}
+          >
+            <div className="flex items-center z-50 justify-between gap-2 mt-16 flex-wrap md:mt-0 md:gap-6">
+              {gptToggle && (
+                <select
+                  className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
+                  onChange={selectLanguage}
+                >
+                  {langs.map((ref) => (
+                    <option key={ref.identifier} value={ref.identifier}>
+                      {ref.lang}
+                    </option>
+                  ))}
+                </select>
+              )}
+              <button
+                onClick={handleGptToggle}
+                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+              >
+                {gptToggle ? "HomePage" : "GPT Search"}
+              </button>
+              {gptToggle !== true && (
                 <button
-                  onClick={handleGptToggle}
+                  onClick={handleHomepage}
                   className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
                 >
-                  {gptToggle ? "HomePage" : "GPT Search"}
+                  HomePage
                 </button>
-                {gptToggle !== true && (
-                  <button
-                    onClick={handleHomepage}
-                    className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
-                  >
-                    HomePage
-                  </button>
-                )}
-                <button
-                  onClick={handleContact}
-                  className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
-                >
-                  Contact Us
-                </button>
+              )}
+              <button
+                onClick={handleContact}
+                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+              >
+                Contact Us
+              </button>
 
-                {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
-                {/* Onclick function for the signOut function  */}
-                <button
-                  onClick={handleSignOut}
-                  className="md:px-6 px-3 py-1 md:py-2 outline-none text-white font-semibold md:font-bold rounded bg-[#E50815] cursor-pointer"
-                >
-                  Sign Out
-                </button>
-              </div>
+              {/* <img className="w-16 h-16" src={PROFILE_IMG} alt="Profile png" /> */}
+              {/* Onclick function for the signOut function  */}
+              <button
+                onClick={handleSignOut}
+                className="md:px-6 px-3 py-1 md:py-2 outline-none text-white font-semibold md:font-bold rounded bg-[#E50815] cursor-pointer"
+              >
+                Sign Out
+              </button>
             </div>
           </div>
         )}

@@ -14,7 +14,7 @@ const MovieInfoTrailer = ({ movieId }) => {
     <>
       <div>
         <iframe
-          className="w-[100%] pt-10 aspect-video"
+          className="w-[100%] h-96 md:h-auto md:pt-10 pt-2 aspect-video"
           src={
             "https://www.youtube.com/embed/" +
             trailerKey +

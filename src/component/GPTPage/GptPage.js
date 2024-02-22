@@ -14,7 +14,7 @@ const GptPage = () => {
         src={OPEN_AI_BACKGROUND_IMG}
         alt="background Img"
       />
-      <div className="flex flex-col bg-black">
+      <div className="flex flex-col pt-8 md:pt-0 bg-black">
         <GptSearchBar />
         <GptSearchResult />
       </div>

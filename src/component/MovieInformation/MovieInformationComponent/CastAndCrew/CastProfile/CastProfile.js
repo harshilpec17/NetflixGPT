@@ -52,7 +52,7 @@ const CastProfile = () => {
 
   return (
     <>
-      <div className="bg-[#1D2127] pt-1 pb-10 ">
+      <div className="bg-[#1D2127] md:pt-3 pt-12 pb-10 ">
         <CastProfileInfo />
         <CastProfileMovieCard />
       </div>

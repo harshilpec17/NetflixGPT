@@ -8,7 +8,7 @@ const MovieCluster = () => {
   return (
     <>
       <div className="bg-gray-950">
-        <div className="-mt-36 relative flex flex-col md:ml-12 pr-2 pt-14 md:pt-20 pb-10 md:pb-20">
+        <div className="-mt-60 lg:-mt-36 relative flex flex-col md:ml-12 pr-2 pt-14 md:pt-20 pb-10 md:pb-20">
           <MovieList
             title={"Now Playing"}
             movies={movieList.nowPlayingMovies}

@@ -11,10 +11,10 @@ const Cast = () => {
         <div>
           {profile.cast && (
             <>
-              <h2 className="text-black text-left font-bold text-lg py-2 md:text-xl md:py-4">
+              <h2 className="text-black text-left mx-2 font-bold text-lg py-2 md:text-xl md:py-4">
                 Top Cast
               </h2>
-              <div className="flex flex-wrap gap-2 md:gap-4">
+              <div className="flex flex-wrap mx-2 gap-2 md:gap-4">
                 {profile.cast.map((pro, index) => (
                   <CastCard key={index} cast={pro} />
                 ))}
@@ -25,10 +25,10 @@ const Cast = () => {
         <div>
           {profile.crew && (
             <>
-              <h2 className="text-black font-bold text-left text-lg py-2 md:text-xl md:py-4">
+              <h2 className="text-black font-bold mx-2 w-screen text-left text-lg py-2 md:text-xl md:py-4">
                 Top Crew
               </h2>
-              <div className="flex flex-wrap gap-2 md:gap-4">
+              <div className="flex flex-wrap mx-2 gap-2 md:gap-4">
                 {profile.crew.map((pro, index) => (
                   <CastCard key={index} cast={pro} />
                 ))}
