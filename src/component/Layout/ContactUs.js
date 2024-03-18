@@ -65,6 +65,11 @@ const ContactUs = () => {
                         ></img>
                       </div>
                     </div>
+                    {emailToggle ? (
+                      <h1 className="bg-orange-400 text-black font-bold p-1 text-center rounded-md">
+                        harshilsuthar1995@gmail.com
+                      </h1>
+                    ) : null}
                     <div className="flex flex-col items-center justify-between">
                       <h2 className="text-xl font-bold mt-4  text-red-400">
                         Language and Library
@@ -139,11 +144,11 @@ const ContactUs = () => {
               <div className="col-span-4 sm:col-span-9">
                 <div className="bg-[#12100E] shadow rounded-lg p-6">
                   <div className="my-2">
-                    <h2 className="text-xl font-bold mb-2 text-red-400">
+                    <h2 className="text-2xl font-bold mb-2 text-red-400">
                       Overview
                     </h2>
 
-                    <span className=" text-md">
+                    <span className=" text-xl">
                       The Movie Recommendation Web App is an innovative platform
                       designed to provide personalized movie recommendations
                       based on the user's mood. Powered by the{" "}
@@ -156,26 +161,26 @@ const ContactUs = () => {
                     </span>
                   </div>
                   <div className="mt-4">
-                    <h2 className="text-xl font-bold text-red-400">
+                    <h2 className="text-2xl font-bold text-red-400">
                       Key Features:
                     </h2>
                   </div>
-                  <div className="my-2">
-                    <p>
+                  <div className="text-xl my-2">
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Mood-based Recommendations:
                       </span>{" "}
                       Users can input their mood, and the app will generate
                       movie recommendations tailored to their emotional state.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Advanced Search:
                       </span>{" "}
                       Users can specify detailed criteria such as genre, release
                       year, and language to refine their movie search.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Comprehensive Movie Information:
                       </span>{" "}
@@ -188,7 +193,7 @@ const ContactUs = () => {
                       descriptions, posters, cast information, language, and
                       ratings.
                     </p>{" "}
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Streaming Platform Integration:
                       </span>{" "}
@@ -200,14 +205,14 @@ const ContactUs = () => {
                       , the app displays information on where users can stream
                       or purchase the recommended movies.
                     </p>{" "}
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Language Filter:
                       </span>{" "}
                       Users can filter movie results based on language
                       preferences.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Multi-language Support:
                       </span>{" "}
@@ -215,7 +220,7 @@ const ContactUs = () => {
                       translating the entire page for a more localized
                       experience.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Responsive UI:
                       </span>{" "}
@@ -223,7 +228,7 @@ const ContactUs = () => {
                       ensuring optimal viewing and interaction experiences
                       across a wide range of devices and screen sizes.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Error Handling:
                       </span>{" "}
@@ -232,7 +237,7 @@ const ContactUs = () => {
                       informative feedback and maintaining a smooth user
                       experience.
                     </p>
-                    <p>
+                    <p className="py-2">
                       <span className="font-semibold text-yellow-400">
                         Shimmer UI:
                       </span>{" "}
@@ -243,13 +248,13 @@ const ContactUs = () => {
                   </div>
 
                   <div className="mt-4">
-                    <h2 className="text-xl font-bold text-red-400">
+                    <h2 className="text-2xl font-bold text-red-400">
                       Technology
                     </h2>
                   </div>
-                  <div className="my-2">
+                  <div className="text-xl my-2">
                     <ul className="text-gray-100">
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold py-1 text-blue-400">
                           React:{" "}
                         </span>{" "}
@@ -257,14 +262,14 @@ const ContactUs = () => {
                         JavaScript library for building user interfaces,
                         enabling fast and interactive components.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           HTML & CSS:
                         </span>{" "}
                         The app's structure and styling are created using HTML
                         and CSS, ensuring a clean and visually appealing layout.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           Tailwind CSS:
                         </span>{" "}
@@ -272,7 +277,7 @@ const ContactUs = () => {
                         utility classes to style elements and components
                         efficiently.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           React Router:
                         </span>{" "}
@@ -281,7 +286,7 @@ const ContactUs = () => {
                         based on the URL.
                       </li>
 
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           Redux Toolkit:
                         </span>{" "}
@@ -289,13 +294,13 @@ const ContactUs = () => {
                         the app to manage complex state logic and data flow
                         efficiently.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">Vercel:</span>{" "}
                         Vercel is used for deployment, providing a seamless and
                         efficient platform for hosting the app and managing its
                         deployment lifecycle.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           Firebase:
                         </span>{" "}
@@ -304,14 +309,14 @@ const ContactUs = () => {
                         enabling real-time updates and data synchronization.
                       </li>
 
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           Custom Hooks:
                         </span>{" "}
                         Custom hooks are created to encapsulate reusable logic,
                         enhancing code reusability and maintainability.
                       </li>
-                      <li>
+                      <li className="py-2">
                         <span className="font-bold text-blue-400">
                           Popup Modal:
                         </span>{" "}
@@ -322,62 +327,64 @@ const ContactUs = () => {
                     </ul>
                   </div>
 
-                  <h2 className="text-xl font-bold mt-6 mb-4">Experience</h2>
+                  <h2 className="text-2xl text-green-500 bg-white px-2 py-1 font-bold mt-6 mb-4">
+                    Experience
+                  </h2>
                   <div className="mb-6">
                     <div className="flex justify-between flex-wrap gap-2 w-full">
-                      <span className="text-gray-700 font-bold">
-                        Web Developer
+                      <span className="text-purple-500 font-semibold text-2xl">
+                        Find Your Movie
                       </span>
                       <p>
-                        <span className="text-gray-700 mr-2">
-                          at ABC Company
+                        <span
+                          onClick={() =>
+                            openInNewTab("https://findyourmovie.vercel.app/")
+                          }
+                          className="text-blue-400 text-lg underline cursor-pointer mr-2"
+                        >
+                          findyourmovie.vercel.app
                         </span>
-                        <span className="text-gray-700">2017 - 2019</span>
                       </p>
                     </div>
-                    <p className="mt-2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed finibus est vitae tortor ullamcorper, ut vestibulum
-                      velit convallis. Aenean posuere risus non velit egestas
-                      suscipit.
+                    <p className="pt-2">
+                      <span className="text-gray-100 text-xl ">
+                        The Movie Recommendation Web App is an innovative
+                        platform designed to provide personalized movie
+                        recommendations based on the user's mood. Powered by the{" "}
+                        <span className="text-orange-400 font-bold">
+                          GPT-3.5 Turbo{" "}
+                        </span>
+                        model, the app leverages advanced natural language
+                        processing to understand user inputs and generate
+                        relevant movie suggestions.
+                      </span>
                     </p>
                   </div>
                   <div className="mb-6">
                     <div className="flex justify-between flex-wrap gap-2 w-full">
-                      <span className="text-gray-700 font-bold">
-                        Web Developer
+                      <span className="text-purple-500 font-semibold text-2xl">
+                        Find Your Video
                       </span>
                       <p>
-                        <span className="text-gray-700 mr-2">
-                          at ABC Company
+                        <span
+                          onClick={() =>
+                            openInNewTab("https://findyourvideo.vercel.app/")
+                          }
+                          className="text-blue-400 text-lg underline cursor-pointer mr-2"
+                        >
+                          findyourvideo.vercel.app
                         </span>
-                        <span className="text-gray-700">2017 - 2019</span>
                       </p>
                     </div>
-                    <p className="mt-2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed finibus est vitae tortor ullamcorper, ut vestibulum
-                      velit convallis. Aenean posuere risus non velit egestas
-                      suscipit.
-                    </p>
-                  </div>
-                  <div className="mb-6">
-                    <div className="flex justify-between flex-wrap gap-2 w-full">
-                      <span className="text-gray-700 font-bold">
-                        Web Developer
+                    <p className="text-gray-100 text-xl pt-2">
+                      Application providing core functionalities to users with a
+                      familiar interface for browsing, recommendation, watching,
+                      and interacting with videos. Leveraging Youtube API such
+                      as{" "}
+                      <span className="font-semibold text-pink-400">
+                        Search recommendation, Most popular video API, Random
+                        user API, Comment API.
                       </span>
-                      <p>
-                        <span className="text-gray-700 mr-2">
-                          at ABC Company
-                        </span>
-                        <span className="text-gray-700">2017 - 2019</span>
-                      </p>
-                    </div>
-                    <p className="mt-2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed finibus est vitae tortor ullamcorper, ut vestibulum
-                      velit convallis. Aenean posuere risus non velit egestas
-                      suscipit.
                     </p>
                   </div>
                 </div>
