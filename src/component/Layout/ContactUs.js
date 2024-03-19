@@ -333,30 +333,30 @@ const ContactUs = () => {
                   <div className="mb-6">
                     <div className="flex justify-between flex-wrap gap-2 w-full">
                       <span className="text-purple-500 font-semibold text-2xl">
-                        Find Your Movie
+                        Find Your Food
                       </span>
                       <p>
                         <span
                           onClick={() =>
-                            openInNewTab("https://findyourmovie.vercel.app/")
+                            openInNewTab("https://findyourfood.vercel.app/")
                           }
                           className="text-blue-400 text-lg underline cursor-pointer mr-2"
                         >
-                          findyourmovie.vercel.app
+                          findyourfood.vercel.app
                         </span>
                       </p>
                     </div>
                     <p className="pt-2">
                       <span className="text-gray-100 text-xl ">
-                        The Movie Recommendation Web App is an innovative
-                        platform designed to provide personalized movie
-                        recommendations based on the user's mood. Powered by the{" "}
-                        <span className="text-orange-400 font-bold">
-                          GPT-3.5 Turbo{" "}
+                        Food delivery web app is a dynamic and user-friendly
+                        platform designed to connect users with local
+                        restaurants for quick and convenient food ordering. Key
+                        features{" "}
+                        <span className="text-emerald-300 font-bold">
+                          Include: Lazy loading, HOC(Higher Order Component),
+                          Dark light mode, Internet connectivity check, Shimmer
+                          UI
                         </span>
-                        model, the app leverages advanced natural language
-                        processing to understand user inputs and generate
-                        relevant movie suggestions.
                       </span>
                     </p>
                   </div>
