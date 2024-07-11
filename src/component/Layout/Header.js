@@ -87,6 +87,7 @@ const Header = () => {
         <div className="w-60 cursor-pointer h-24 ">
           <img alt="brandLogo" src={HEADERLOGO} className="lg:w-60 w-36 p-2" />
         </div>
+
         {user && (
           <div>
             <img

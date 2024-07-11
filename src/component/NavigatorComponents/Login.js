@@ -201,7 +201,7 @@ const Login = () => {
             onClick={handleSignIn}
           >
             {isSignIn
-              ? "New to Netflix? Sign up now."
+              ? "New to app? Sign up now."
               : "Already Register ? Sign In here"}
           </h3>
           {isSignIn ? (
