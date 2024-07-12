@@ -14,7 +14,7 @@ const LandingPage = () => {
             <div className="flex items-center justify-between">
               <div className="shrink-0"></div>
 
-              <div className="flex md:hidden">
+              {/* <div className="flex md:hidden">
                 <button
                   type="button"
                   className="text-white"
@@ -55,49 +55,13 @@ const LandingPage = () => {
                     </svg>
                   </span>
                 </button>
-              </div>
+              </div> */}
 
               <nav className="hidden md:flex md:items-center md:justify-end md:space-x-12"></nav>
             </div>
 
             <nav x-show="expanded" x-collapse="true">
-              <div className="flex flex-col pt-8 pb-4 space-y-6">
-                {/* <a
-                  href="#"
-                  title=""
-                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
-                >
-                  {" "}
-                  Products{" "}
-                </a>
-
-                <a
-                  href="#"
-                  title=""
-                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
-                >
-                  {" "}
-                  Features{" "}
-                </a>
-
-                <a
-                  href="#"
-                  title=""
-                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
-                >
-                  {" "}
-                  Pricing{" "}
-                </a>
-
-                <a
-                  href="#"
-                  title=""
-                  className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white"
-                >
-                  {" "}
-                  Support{" "}
-                </a> */}
-              </div>
+              <div className="flex flex-col pt-8 pb-4 space-y-6"></div>
             </nav>
           </div>
         </div>
@@ -107,7 +71,7 @@ const LandingPage = () => {
             onClick={() => {
               navigate("login");
             }}
-            className="transition-all hover:text-white w-28 h-10 duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"
+            className="transition-all text-sm md:text-lg font-semibold px-5 py-2 md:px-6 md:py-2 hover:text-white   duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"
           >
             Login
           </button>
@@ -115,7 +79,7 @@ const LandingPage = () => {
             onClick={() => {
               navigate("login");
             }}
-            className="transition-all hover:text-white w-28 h-10 duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"
+            className="transition-all text-sm md:text-lg font-semibold px-5 py-2 md:px-6 md:py-2 hover:text-white  duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500"
           >
             Sign Up
           </button>
@@ -196,7 +160,7 @@ const LandingPage = () => {
 
                     <span className="ml-2 text-base font-normal text-white">
                       {" "}
-                      42 new design inspiration was added last week{" "}
+                      Trusted by the movie enthusiasts people !
                     </span>
                   </div>
                 </div>
