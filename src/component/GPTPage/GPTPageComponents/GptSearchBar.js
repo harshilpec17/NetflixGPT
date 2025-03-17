@@ -48,6 +48,8 @@ const GptSearchBar = () => {
 
     const GPTQueryData = chatCompletion.choices[0].message.content;
 
+    console.log(chatCompletion);
+
     const GPTQueryArray = GPTQueryData.split(",").map((query) => query.trim());
 
     const moviePromise = GPTQueryArray.map((movie) => movieDataBase(movie));
