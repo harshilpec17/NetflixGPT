@@ -107,12 +107,21 @@ const GptSearchResult = () => {
             ))}
 
           <div className="flex flex-row flex-wrap justify-center items-center py-3">
-            {filteredGptMovieDataBaseResult?.length > 0 ? (
-              filteredGptMovieDataBaseResult.map((m, index) => (
-                <div key={index}>
-                  <MovieCards poster={m.poster_path} movie={m} />
-                </div>
-              ))
+            {filteredGptMovieDataBaseResult?.length > 0 &&
+            filteredGptMovieDataBaseResult !== null ? (
+              filteredGptMovieDataBaseResult.filter(
+                (m) => m.poster_path !== null
+              ).length > 0 ? (
+                filteredGptMovieDataBaseResult
+                  .filter((m) => m.poster_path !== null)
+                  .map((m, index) => (
+                    <div key={index}>
+                      <MovieCards poster={m.poster_path} movie={m} id={m.id} />
+                    </div>
+                  ))
+              ) : (
+                <ShimmerGPT />
+              )
             ) : (
               <ShimmerGPT />
             )}
