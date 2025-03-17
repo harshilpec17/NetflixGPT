@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieCards from "../../MovieClusters/MovieClusterComponents/MovieCards";
 import { useEffect, useRef, useState } from "react";
 import { addFilteredGptMovieDataBaseResults } from "../../../utils/redux/GPTSearchSlice";
+import ShimmerGPT from "../../ShimmerComponent/ShimmerGPT";
 
 const GptSearchResult = () => {
   const dispatch = useDispatch();
@@ -106,12 +107,15 @@ const GptSearchResult = () => {
             ))}
 
           <div className="flex flex-row flex-wrap justify-center items-center py-3">
-            {filteredGptMovieDataBaseResult &&
+            {filteredGptMovieDataBaseResult?.length > 0 ? (
               filteredGptMovieDataBaseResult.map((m, index) => (
                 <div key={index}>
                   <MovieCards poster={m.poster_path} movie={m} />
                 </div>
-              ))}
+              ))
+            ) : (
+              <ShimmerGPT />
+            )}
           </div>
         </div>
       </div>

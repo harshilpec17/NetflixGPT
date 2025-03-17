@@ -82,11 +82,8 @@ const GptSearchBar = () => {
           </button>
         </form>
       </div>
-      {gptSearchQuery === null ? (
-        <GptDisclaimer />
-      ) : movie === null ? (
-        <ShimmerGPT />
-      ) : null}
+
+      {gptSearchQuery === null && movie === null ? <GptDisclaimer /> : null}
     </>
   );
 };
