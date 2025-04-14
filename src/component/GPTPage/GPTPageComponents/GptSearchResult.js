@@ -3,6 +3,7 @@ import MovieCards from "../../MovieClusters/MovieClusterComponents/MovieCards";
 import { useEffect, useRef, useState } from "react";
 import { addFilteredGptMovieDataBaseResults } from "../../../utils/redux/GPTSearchSlice";
 import ShimmerGPT from "../../ShimmerComponent/ShimmerGPT";
+import Error from "../../Layout/Error";
 
 const GptSearchResult = () => {
   const dispatch = useDispatch();
@@ -108,7 +109,8 @@ const GptSearchResult = () => {
 
           <div className="flex flex-row flex-wrap justify-center items-center py-3">
             {filteredGptMovieDataBaseResult?.length > 0 &&
-            filteredGptMovieDataBaseResult !== null ? (
+            filteredGptMovieDataBaseResult !== null &&
+            gptMovieDataBaseResults?.length > 0 ? (
               filteredGptMovieDataBaseResult.filter(
                 (m) => m.poster_path !== null
               ).length > 0 ? (
@@ -120,9 +122,17 @@ const GptSearchResult = () => {
               ) : (
                 <ShimmerGPT />
               )
-            ) : (
-              <ShimmerGPT />
-            )}
+            ) : null}
+            {filteredGptMovieDataBaseResult?.length === 0 ? (
+              <div className="flex flex-col justify-center items-center h-screen">
+                <h1 className="text-white text-xl md:text-xl">
+                  No Movies Found in this Language
+                </h1>
+                <h2 className="text-white text-sm md:text-md">
+                  Please try with another language.
+                </h2>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

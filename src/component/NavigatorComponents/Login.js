@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { validateData } from "../../utils/loginConfig/Validate";
 import { auth } from "../../utils/loginConfig/Firebase";
@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/redux/userSlice";
 import BACKGROUND_IMG from "../../logo/backgroundImage.png";
+import { removeUser } from "../../utils/redux/userSlice";
 
 const Login = () => {
   // This hook will check and modify the component to login or SignUp by checking which state are active
@@ -23,6 +24,7 @@ const Login = () => {
 
   const [emailValue, setEmailValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
+  const [nameValue, setNameValue] = useState(null);
 
   // for updating the redux store, we are using the the useDispatch hook.
   const dispatch = useDispatch();
@@ -30,20 +32,20 @@ const Login = () => {
   // It is hook provide by the "react-router-dom" to navigate the URL or USER after certain task
 
   // This function make the toggle feature, If the "isSignIn" variable is true then it will make the false and vice versa
-  const handleSignIn = () => setIsSignIn(!isSignIn);
+  const handleSignIn = () => {
+    setEmailValue("");
+    setPasswordValue("");
+    setNameValue("");
+    setIsSignIn(!isSignIn);
+    setErrorMessage(null);
+  };
 
-  // This all three variable is using the "useRef" hook, which connect the dot between the respective input field and functionality
-  // "useRef hook" will use to provide the reference to certain point
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const nameRef = useRef(null);
+  // This function will check the user is already present in the application or not
+  // If the user is already present then it will fetch the data from the firebase and update the redux store
 
   // This function will check the email and password with regex condition by using the function from the validate.js
   const handleValidation = () => {
-    const message = validateData(
-      emailRef.current.value,
-      passwordRef.current.value
-    );
+    const message = validateData(emailValue, passwordValue);
 
     // If the condition is validate pass then it will return the null value or else the respective error message
     setErrorMessage(message);
@@ -53,18 +55,14 @@ const Login = () => {
     if (!isSignIn) {
       // Sign Up logic
 
-      createUserWithEmailAndPassword(
-        auth,
-        emailRef.current.value,
-        passwordRef.current.value
-      )
+      createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
 
           // to fetch the value from the user like the display name, uid, email to update the value once again in the redux store
           updateProfile(user, {
-            displayName: nameRef.current.value,
+            displayName: nameValue,
           })
             .then((response) => {
               // It will get the data from the currentUser, who just signIn in the application,
@@ -87,18 +85,12 @@ const Login = () => {
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + errorMessage);
+          setErrorMessage("Something went wrong");
         });
     } else {
       // Signed in
       // If the user is already present in the application then, we can use the SignIn functionality
-      signInWithEmailAndPassword(
-        auth,
-        emailRef.current.value,
-        passwordRef.current.value
-      )
+      signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
           sessionStorage.setItem(
@@ -107,27 +99,9 @@ const Login = () => {
           );
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + errorMessage);
+          setErrorMessage("Invalid email or password");
         });
     }
-  };
-
-  // It to select the whole email, password, and name on a click of the button
-  const selectEmail = () => {
-    emailRef.current?.select();
-    emailRef.current?.setSelectionRange(0, 100);
-  };
-
-  const selectPassword = () => {
-    passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 100);
-  };
-
-  const selectName = () => {
-    nameRef.current?.select();
-    nameRef.current?.setSelectionRange(0, 100);
   };
 
   const handleDefault = () => {
@@ -159,8 +133,9 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                ref={nameRef}
-                onClick={() => selectName()}
+                value={nameValue}
+                onChange={(e) => setNameValue(e.target.value)}
+                // onClick={() => selectName()}
                 className="p-2 m-2 max-w-md bg-[#333333] rounded outline-none"
               ></input>
             )}
@@ -169,18 +144,18 @@ const Login = () => {
               type="text"
               placeholder="Email address or User Name"
               className="p-2 m-2 max-w-md bg-[#333333] rounded outline-none"
-              ref={emailRef}
               value={emailValue}
-              onClick={() => selectEmail()}
+              onChange={(e) => setEmailValue(e.target.value)}
+              // onClick={() => selectEmail()}
             ></input>
 
             {/* password Input box */}
             <input
               type="password"
               placeholder="Password"
-              ref={passwordRef}
               value={passwordValue}
-              onClick={() => selectPassword()}
+              onChange={(e) => setPasswordValue(e.target.value)}
+              // onClick={() => selectPassword()}
               className="p-2 m-2 max-w-md bg-[#333333] rounded outline-none"
             ></input>
             {/* Error message */}
@@ -189,7 +164,7 @@ const Login = () => {
             {/* It will validate the data against the regex configuration */}
             <button
               className="p-2 m-2 max-w-md bg-[#E50815] text-white font-bold outline-none rounded"
-              onClick={handleValidation}
+              onClick={() => handleValidation()}
             >
               {isSignIn ? "Sign In" : "Sign Up"}
             </button>
@@ -198,7 +173,7 @@ const Login = () => {
           {/* To convert the form from the Sign it to sign Up*/}
           <h3
             className="text-white text-lg font-semibold p-2 m-2 cursor-pointer"
-            onClick={handleSignIn}
+            onClick={() => handleSignIn()}
           >
             {isSignIn
               ? "New to app? Sign up now."
@@ -207,7 +182,7 @@ const Login = () => {
           {isSignIn ? (
             <h3
               className="bg-orange-400 text-sm font-semibold m-2 p-1 cursor-pointer"
-              onClick={handleDefault}
+              onClick={() => handleDefault()}
             >
               Continue Without Login or SignUp
             </h3>
