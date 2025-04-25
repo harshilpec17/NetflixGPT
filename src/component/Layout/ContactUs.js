@@ -21,7 +21,7 @@ const ContactUs = () => {
                 <div className="bg-[#12100E] shadow rounded-lg p-6">
                   <div className="flex flex-col items-center">
                     <img
-                      src="https://randomuser.me/api/portraits/men/94.jpg"
+                      src="https://avatars.githubusercontent.com/u/86279802?s=400&u=d8dd956d0e29f53764aed0ae8d783641aa6a665d&v=4"
                       alt="profile"
                       className="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
                     ></img>
