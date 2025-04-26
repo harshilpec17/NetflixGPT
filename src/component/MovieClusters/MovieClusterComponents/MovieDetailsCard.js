@@ -47,7 +47,7 @@ const MovieDetailsCard = ({ details }) => {
               </div>
               <div className="flex flex-col justify-around ml-2 pt-2">
                 <div className="text-sm m-2 font-bold text-justify ">
-                  Popularity: {details.popularity}
+                  Popularity: {details.vote_average.toFixed(2)}
                 </div>
                 <div className="text-xs m-2 text-justify ">
                   {details.overview}
