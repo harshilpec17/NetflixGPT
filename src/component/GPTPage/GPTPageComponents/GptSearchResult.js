@@ -44,7 +44,7 @@ const GptSearchResult = () => {
 
   return (
     <>
-      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-black bg-opacity-90 mb-8 rounded">
+      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-950 bg-opacity-90 mb-16 pb-16 rounded">
         <div className="flex flex-wrap flex-col">
           <div className="flex justify-between px-2 md:px-4 items-center bg-[#1D2127]">
             <div className="py-2">
