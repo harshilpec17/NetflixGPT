@@ -153,7 +153,7 @@ const ContactUs = () => {
                       designed to provide personalized movie recommendations
                       based on the user's mood. Powered by the{" "}
                       <span className="text-orange-400 font-bold">
-                        GPT-3.5 Turbo{" "}
+                        GPT-4.1{" "}
                       </span>
                       model, the app leverages advanced natural language
                       processing to understand user inputs and generate relevant

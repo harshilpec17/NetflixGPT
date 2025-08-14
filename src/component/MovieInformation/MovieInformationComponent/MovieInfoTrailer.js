@@ -10,7 +10,7 @@ const MovieInfoTrailer = ({ movieId }) => {
     (store) => store.movieDescription.movieVideo.key
   );
 
-  console.log("trailerKey", trailerKey);
+
 
   return (
     <>

@@ -9,12 +9,12 @@ const GptPage = () => {
   }, []);
   return (
     <>
-      <img
+      {/* <img
         className="bg-cover bg-center h-screen md:bg-contain fixed w-screen"
         src={OPEN_AI_BACKGROUND_IMG}
         alt="background Img"
-      />
-      <div className="flex flex-col pt-8 md:pt-0 bg-black">
+      /> */}
+      <div className="flex flex-col pt-8 md:pt-0 bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
         <GptSearchBar />
         <GptSearchResult />
       </div>

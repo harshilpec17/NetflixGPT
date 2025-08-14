@@ -2,7 +2,7 @@
 
 The Movie Recommendation Web App is an innovative platform
 designed to provide personalized movie recommendations
-based on the user's mood. Powered by the <font color="red">**GPT-3.5 Turbo model** </font>, the app leverages advanced natural language
+based on the user's mood. Powered by the <font color="red">**GPT-4.1 model** </font>, the app leverages advanced natural language
 processing to understand user inputs and generate relevant
 
 ### **[findyourmovie.vercel.app](https://findyourmovie.vercel.app/)**

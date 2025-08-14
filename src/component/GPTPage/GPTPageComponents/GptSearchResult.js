@@ -44,9 +44,9 @@ const GptSearchResult = () => {
 
   return (
     <>
-      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-950 bg-opacity-90 mb-16 pb-16 rounded">
+      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-900  mb-16 pb-16 rounded">
         <div className="flex flex-wrap flex-col">
-          <div className="flex justify-between px-2 md:px-4 items-center bg-[#1D2127]">
+          <div className="flex justify-between px-2 pb-4 md:px-4 items-center bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
             <div className="py-2">
               <form
                 onSubmit={(e) => e.preventDefault()}
@@ -60,7 +60,7 @@ const GptSearchResult = () => {
                 ></input>
                 <button
                   onClick={handleChange}
-                  className="outline-none bg-[#024B58] text-[#D1D7E0] px-5 md:px-8 py-1 shrink-0"
+                  className="outline-none bg-red-700 text-white hover:bg-red-400 px-5 md:px-8 py-2 shrink-0"
                 >
                   Filter
                 </button>
@@ -68,7 +68,7 @@ const GptSearchResult = () => {
             </div>
             <button
               onClick={handleReset}
-              className="outline-none rounded-sm md:rounded-lg bg-[#024B58] text-[#D1D7E0] px-5 md:px-8 py-1"
+              className="outline-none rounded-sm md:rounded-lg bg-red-700 text-white hover:bg-orange-400 px-5 md:px-8 py-2"
             >
               Reset
             </button>
@@ -76,8 +76,8 @@ const GptSearchResult = () => {
           {filteredGptMovieDataBaseResult === null &&
             gptSearchResults.map((movie, index) => (
               <div key={index}>
-                <div className="py-1 md:py-3">
-                  <h1 className="p-2 md:text-xl bg-[#024B58] text-[#D1D7E0]">
+                <div className="">
+                  <h1 className="p-2 md:text-xl bg-zinc-700 text-center text-white">
                     {movie}
                   </h1>
                 </div>

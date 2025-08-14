@@ -43,12 +43,10 @@ const GptSearchBar = () => {
 
     const chatCompletion = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4.1-mini",
     });
 
     const GPTQueryData = chatCompletion.choices[0].message.content;
-
-    console.log(chatCompletion);
 
     const GPTQueryArray = GPTQueryData.split(",").map((query) => query.trim());
 
@@ -63,20 +61,20 @@ const GptSearchBar = () => {
 
   return (
     <>
-      <div className="relative m-auto flex mt-32 md:mt-28 pt-4 px-2 justify-center w-screen items-start max-w-md md:max-w-3xl bg-[#1D2127]">
+      <div className="relative shadow-xl rounded-t-lg m-auto flex mt-32 md:mt-28 pt-4 px-4 justify-center w-screen items-start max-w-md md:max-w-3xl bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex shadow rounded-sm md:rounded-lg overflow-hidden mb-4"
         >
           <input
-            className="outline-none w-screen py-2 md:py-3 pl-2 pr-2"
+            className="outline-none w-screen bg-zinc-700 py-2 md:py-3 pl-2 pr-2"
             placeholder={LANGUAGE_CONSTANT[languageSelector].placeholder}
             type="text"
             ref={searchText}
           ></input>
           <button
             onClick={handleChange}
-            className="outline-none bg-[#90E7FE] text-black md:px-3 px-1 py-0.5 shrink-0"
+            className="outline-none bg-red-700 text-white hover:bg-blue-500 text-black md:px-3 px-1 py-0.5 shrink-0"
           >
             {LANGUAGE_CONSTANT[languageSelector].search}
           </button>

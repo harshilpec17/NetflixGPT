@@ -108,7 +108,7 @@ const Header = () => {
             <div className="flex items-center z-50 justify-between gap-2 mt-16 flex-wrap md:mt-0 md:gap-6">
               {gptToggle && (
                 <select
-                  className="bg-gray-500 px-2 py-1 rounded outline-none text-white"
+                  className="bg-stone-700 px-2 py-1 rounded outline-none text-white"
                   onChange={selectLanguage}
                 >
                   {langs.map((ref) => (
@@ -120,21 +120,21 @@ const Header = () => {
               )}
               <button
                 onClick={handleGptToggle}
-                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-stone-600 to-stone-800 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
               >
                 {gptToggle ? "HomePage" : "GPT Search"}
               </button>
               {gptToggle !== true && (
                 <button
                   onClick={handleHomepage}
-                  className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                  className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-stone-600 to-stone-800 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
                 >
                   HomePage
                 </button>
               )}
               <button
                 onClick={handleContact}
-                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
+                className="md:px-6 px-3 py-1 md:py-2 outline-none rounded text-white font-semibold md:font-bold bg-gradient-to-r from-stone-600 to-stone-800 hover:from-pink-500 hover:to-yellow-500  cursor-pointer"
               >
                 Contact Us
               </button>

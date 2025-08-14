@@ -14,7 +14,7 @@ const Footer = () => {
     <>
       {" "}
       {user && (
-        <div className="bg-gray-900 md:h-40 w-screen shadow-2xl text-white flex flex-col md:flex-row absolute ">
+        <div className="bg-black md:h-40 w-screen shadow-2xl text-white flex flex-col md:flex-row absolute ">
           <div className="md:px-16 px-4 pt-3 md:pt-0 my-1 flex flex-row gap-4 items-start md:flex-col md:my-6 md:w-1/3 ">
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
@@ -26,7 +26,7 @@ const Footer = () => {
               TMDB.
             </p>
           </div>
-          <div className="md:w-1/3 md:px-16 bg-zinc-600 md:bg-gray-900 px-4 md:py-4 py-1 h-28 text-center md:flex-nowrap flex flex-col md:gap-3 gap-1  items-center  ">
+          <div className="md:w-1/3 md:px-16 bg-black md:bg-black px-4 md:py-4 py-1 h-28 text-center md:flex-nowrap flex flex-col md:gap-3 gap-1  items-center  ">
             <h1 className="text-lg md:text-xl font-semibold">Contact Me :</h1>
             <div className="flex justify-between md:gap-3 max-w-sm mb-2 md:pb-0 w-28 md:w-40">
               <div
