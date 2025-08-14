@@ -67,7 +67,7 @@ const GptSearchBar = () => {
           className="flex shadow rounded-sm md:rounded-lg overflow-hidden mb-4"
         >
           <input
-            className="outline-none w-screen bg-zinc-700 py-2 md:py-3 pl-2 pr-2"
+            className="outline-none text-white w-screen bg-zinc-700 py-2 md:py-3 pl-2 pr-2"
             placeholder={LANGUAGE_CONSTANT[languageSelector].placeholder}
             type="text"
             ref={searchText}

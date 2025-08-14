@@ -44,7 +44,7 @@ const GptSearchResult = () => {
 
   return (
     <>
-      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-900  mb-16 pb-16 rounded">
+      <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-900 mb-16 pb-16 rounded">
         <div className="flex flex-wrap flex-col">
           <div className="flex justify-between px-2 pb-4 md:px-4 items-center bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
             <div className="py-2">
@@ -53,14 +53,14 @@ const GptSearchResult = () => {
                 className="flex shadow rounded-sm md:rounded-lg overflow-hidden "
               >
                 <input
-                  className="outline-none py-1 px-2 "
+                  className="outline-none px-2 bg-zinc-700"
                   placeholder="Select your Language"
                   type="text"
                   ref={languageChosen}
                 ></input>
                 <button
                   onClick={handleChange}
-                  className="outline-none bg-red-700 text-white hover:bg-red-400 px-5 md:px-8 py-2 shrink-0"
+                  className="outline-none bg-red-700 text-white hover:bg-red-500 px-5 md:px-8 py-1 shrink-0"
                 >
                   Filter
                 </button>
@@ -68,7 +68,7 @@ const GptSearchResult = () => {
             </div>
             <button
               onClick={handleReset}
-              className="outline-none rounded-sm md:rounded-lg bg-red-700 text-white hover:bg-orange-400 px-5 md:px-8 py-2"
+              className="outline-none bg-red-700 text-white hover:bg-red-500 rounded px-5 md:px-8 py-1 shrink-0"
             >
               Reset
             </button>
