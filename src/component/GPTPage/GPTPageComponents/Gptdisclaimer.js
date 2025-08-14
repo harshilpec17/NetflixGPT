@@ -3,7 +3,7 @@ import React from "react";
 const GptDisclaimer = () => {
   return (
     <>
-      <div className="md:max-w-3xl max-w-md relative bg-gray-950 m-auto px-2">
+      <div className="md:max-w-3xl max-w-md relative bg-zinc-900 m-auto px-2">
         <h1 className="text-center text-[#80CAA9] font-bold text-2xl border-b p-2 py-3 shadow-2xl">
           Welcome to Movie Search AI!
         </h1>
