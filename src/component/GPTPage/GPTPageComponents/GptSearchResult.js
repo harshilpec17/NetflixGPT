@@ -46,7 +46,7 @@ const GptSearchResult = () => {
     <>
       <div className="relative w-screen max-w-md md:max-w-3xl m-auto bg-zinc-900 mb-16 pb-16 rounded">
         <div className="flex flex-wrap flex-col">
-          <div className="flex justify-between px-2 pb-4 md:px-4 items-center bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
+          <div className="flex justify-between px-4 pb-4 md:px-4 items-center bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
             <div className="py-2">
               <form
                 onSubmit={(e) => e.preventDefault()}
