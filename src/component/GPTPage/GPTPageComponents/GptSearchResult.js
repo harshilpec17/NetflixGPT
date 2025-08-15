@@ -53,7 +53,7 @@ const GptSearchResult = () => {
                 className="flex shadow rounded-sm md:rounded-lg overflow-hidden "
               >
                 <input
-                  className="outline-none px-2 bg-zinc-700"
+                  className="outline-none px-2 bg-zinc-700 text-zinc-300"
                   placeholder="Select your Language"
                   type="text"
                   ref={languageChosen}

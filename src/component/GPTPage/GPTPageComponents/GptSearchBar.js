@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { LANGUAGE_CONSTANT } from "../../../utils/Constants/languageConstant";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { openai } from "../../../utils/Constants/openAI";
 
 import {
@@ -11,6 +11,7 @@ import { API_TOKEN } from "../../../utils/Constants/constants";
 import GptDisclaimer from "./Gptdisclaimer";
 import ShimmerCastProfile from "../../ShimmerComponent/ShimmerCastProfile";
 import ShimmerGPT from "../../ShimmerComponent/ShimmerGPT";
+import Loader from "../../../utils/Constants/Loader";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const GptSearchBar = () => {
 
   const searchText = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const movieDataBase = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
@@ -36,31 +39,43 @@ const GptSearchBar = () => {
   };
 
   const handleChange = async () => {
-    const gptQuery =
-      "Act as a Movie Recommendation system and suggest some movies for the query : " +
-      searchText.current.value +
-      ". only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+    try {
+      console.log(isLoading);
+      
+      setIsLoading(true);
 
-    const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-4.1-mini",
-    });
+      const gptQuery =
+        "Act as a Movie Recommendation system and suggest some movies for the query : " +
+        searchText.current.value +
+        ". only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+  
+      const chatCompletion = await openai.chat.completions.create({
+        messages: [{ role: "user", content: gptQuery }],
+        model: "gpt-4.1-mini",
+      });
+  
+      const GPTQueryData = chatCompletion.choices[0].message.content;
+  
+      const GPTQueryArray = GPTQueryData.split(",").map((query) => query.trim());
+  
+      const moviePromise = GPTQueryArray.map((movie) => movieDataBase(movie));
+  
+      const movieDataBaseResults = await Promise.all(moviePromise);
+  
+     await dispatch(addGptSearchResult(GPTQueryArray));
+     await dispatch(addGptMovieDataBaseResults(movieDataBaseResults));
+      // dispatch(addFilteredGptMovieDataBaseResults(movieDataBaseResults));
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    } finally {
 
-    const GPTQueryData = chatCompletion.choices[0].message.content;
-
-    const GPTQueryArray = GPTQueryData.split(",").map((query) => query.trim());
-
-    const moviePromise = GPTQueryArray.map((movie) => movieDataBase(movie));
-
-    const movieDataBaseResults = await Promise.all(moviePromise);
-
-    dispatch(addGptSearchResult(GPTQueryArray));
-    dispatch(addGptMovieDataBaseResults(movieDataBaseResults));
-    // dispatch(addFilteredGptMovieDataBaseResults(movieDataBaseResults));
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
+      {isLoading && <Loader />}
       <div className="relative shadow-xl rounded-t-lg m-auto flex mt-32 md:mt-28 pt-4 px-4 justify-center w-screen items-start max-w-md md:max-w-3xl bg-gradient-to-r from-zinc-800 via-black to-zinc-800">
         <form
           onSubmit={(e) => e.preventDefault()}
@@ -74,7 +89,7 @@ const GptSearchBar = () => {
           ></input>
           <button
             onClick={handleChange}
-            className="outline-none bg-red-700 text-white hover:bg-blue-500 text-black md:px-3 px-1 py-0.5 shrink-0"
+            className="outline-none bg-red-700 text-white hover:bg-blue-500  md:px-3 px-1 py-0.5 shrink-0"
           >
             {LANGUAGE_CONSTANT[languageSelector].search}
           </button>
