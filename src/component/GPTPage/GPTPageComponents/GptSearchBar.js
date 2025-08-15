@@ -62,8 +62,8 @@ const GptSearchBar = () => {
   
       const movieDataBaseResults = await Promise.all(moviePromise);
   
-     await dispatch(addGptSearchResult(GPTQueryArray));
-     await dispatch(addGptMovieDataBaseResults(movieDataBaseResults));
+     dispatch(addGptSearchResult(GPTQueryArray));
+      dispatch(addGptMovieDataBaseResults(movieDataBaseResults));
       // dispatch(addFilteredGptMovieDataBaseResults(movieDataBaseResults));
     } catch (error) {
       console.error("Error fetching movie data:", error);
@@ -71,6 +71,7 @@ const GptSearchBar = () => {
 
       setIsLoading(false);
     }
+    
   };
 
   return (
