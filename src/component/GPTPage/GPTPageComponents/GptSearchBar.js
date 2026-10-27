@@ -16,7 +16,7 @@ import Loader from "../../../utils/Constants/Loader";
 const GptSearchBar = () => {
   const dispatch = useDispatch();
   const languageSelector = useSelector(
-    (store) => store.language.selectedLanguage
+    (store) => store.language.selectedLanguage,
   );
 
   const gptSearchQuery = useSelector((store) => store.gpt.gptSearchResults);
@@ -32,7 +32,7 @@ const GptSearchBar = () => {
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
         "&include_adult=false&language=en-US&page=1",
-      API_TOKEN
+      API_TOKEN,
     );
     const json = await data.json();
     return json.results;
@@ -41,37 +41,37 @@ const GptSearchBar = () => {
   const handleChange = async () => {
     try {
       console.log(isLoading);
-      
+
       setIsLoading(true);
 
       const gptQuery =
         "Act as a Movie Recommendation system and suggest some movies for the query : " +
         searchText.current.value +
         ". only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
-  
+
       const chatCompletion = await openai.chat.completions.create({
         messages: [{ role: "user", content: gptQuery }],
-        model: "gpt-4.1-mini",
+        model: "gpt-4o-mini",
       });
-  
+
       const GPTQueryData = chatCompletion.choices[0].message.content;
-  
-      const GPTQueryArray = GPTQueryData.split(",").map((query) => query.trim());
-  
+
+      const GPTQueryArray = GPTQueryData.split(",").map((query) =>
+        query.trim(),
+      );
+
       const moviePromise = GPTQueryArray.map((movie) => movieDataBase(movie));
-  
+
       const movieDataBaseResults = await Promise.all(moviePromise);
-  
-     dispatch(addGptSearchResult(GPTQueryArray));
+
+      dispatch(addGptSearchResult(GPTQueryArray));
       dispatch(addGptMovieDataBaseResults(movieDataBaseResults));
       // dispatch(addFilteredGptMovieDataBaseResults(movieDataBaseResults));
     } catch (error) {
       console.error("Error fetching movie data:", error);
     } finally {
-
       setIsLoading(false);
     }
-    
   };
 
   return (
